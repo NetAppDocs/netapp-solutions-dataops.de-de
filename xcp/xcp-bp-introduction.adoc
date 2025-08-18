@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: xcp/xcp-bp-introduction.html 
+keywords: tr-4863, 4863, tr4863, xcp, best practices, data mover, migration 
+summary: Dieses Dokument enthält Best-Practice-Richtlinien für NetApp XCP und eine auf Testszenarien basierende Lösung.  Diese Best Practices decken den Migrationsworkflow vor Ort sowie in der Cloud, Dateisystemanalysen, Fehlerbehebung und Leistungsoptimierung des XCP ab. 
+---
+= TR-4863: Best-Practice-Richtlinien für NetApp XCP – Data Mover, Dateimigration und Analyse
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+Karthikeyan Nagalingam, NetApp
+
+[role="lead"]
+Dieses Dokument enthält Best-Practice-Richtlinien für NetApp XCP und eine auf Testszenarien basierende Lösung.  Diese Best Practices decken den Migrationsworkflow vor Ort sowie in der Cloud, Dateisystemanalysen, Fehlerbehebung und Leistungsoptimierung von XCP ab.  Der Abschnitt mit den Testszenarien behandelt Anwendungsfälle von Kunden und deren Anforderungen, die NetApp -Lösung mit XCP und die Vorteile für den Kunden.

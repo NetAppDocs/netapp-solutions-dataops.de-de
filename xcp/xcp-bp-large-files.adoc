@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: xcp/xcp-bp-large-files.html 
+keywords: migrate, large files, rman, ebs, pacemaker 
+summary: 'Dieser Anwendungsfall basiert auf einem Fernsehnetzwerkkunden.  Der Kunde wollte Oracle Recovery Manager (RMAN)-Sicherungsdateien in die Cloud migrieren und die Oracle E-Business Suite (EBS)-Anwendung mithilfe von Azure NetApp Files mit Pacemaker-Software ausführen.  Der Kunde wollte außerdem seine Datenbanksicherungsdateien in einen On-Demand-Cloudspeicher migrieren und große Dateien (im Bereich von jeweils 25 GB bis 50 GB) nach Azure übertragen.' 
+---
+= Verwendung des XCP Data Mover zur Migration großer Dateien
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dieser Anwendungsfall basiert auf einem Fernsehnetzwerkkunden.  Der Kunde wollte Oracle Recovery Manager (RMAN)-Sicherungsdateien in die Cloud migrieren und die Oracle E-Business Suite (EBS)-Anwendung mithilfe von Azure NetApp Files mit Pacemaker-Software ausführen.  Der Kunde wollte außerdem seine Datenbanksicherungsdateien in einen On-Demand-Cloudspeicher migrieren und große Dateien (im Bereich von jeweils 25 GB bis 50 GB) nach Azure übertragen.
+
+Die folgende Abbildung veranschaulicht die Datenmigration von lokalen Standorten zu Azure NetApp Files für große Dateien.
+
+Weitere Informationen finden Sie im https://blog.netapp.com/XCP-cloud-data-migration["NetApp XCP Data Mover-Lösung: Von On-Premises in die Cloud"^] Blog.

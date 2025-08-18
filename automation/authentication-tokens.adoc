@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: automation/authentication-tokens.html 
+summary: Diese Seite enthält detaillierte Informationen zum Sammeln der erforderlichen Aktualisierungstoken und Zugriffs-/Geheimschlüssel für CVO- und Cloud Manager Connector-Bereitstellungen über NetApp Cloud Manager. 
+keywords: netapp, solutions, automation, ansible 
+---
+= NetApp Lösungsautomatisierung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese Seite enthält detaillierte Informationen zum Sammeln der erforderlichen Aktualisierungstoken und Zugriffs-/Geheimschlüssel für CVO- und Cloud Manager Connector-Bereitstellungen über NetApp Cloud Manager.
+
+
+
+== AWS-Authentifizierungsanforderungen für CVO und Connector mit NetApp Cloud Manager
+
+Um automatisierte Bereitstellungen von CVO und Connectors mithilfe von Ansible-Playbooks über AWX/Ansible Tower zu konfigurieren, werden die folgenden Informationen benötigt:
+
+
+
+=== Zugriffs-/Geheimschlüssel von AWS erhalten
+
+. Um CVO und Connector in Cloud Manager bereitzustellen, benötigen wir einen AWS-Zugriffs-/Geheimschlüssel.  Besorgen Sie sich die Schlüssel in der AWS-Konsole, indem Sie IAM-->Benutzer-->Ihr Benutzername-->Sicherheitsanmeldeinformationen-->Zugriffsschlüssel erstellen starten.
+. Kopieren Sie Zugriffsschlüssel und bewahren Sie sie sicher auf, um sie bei der Connector- und CVO-Bereitstellung zu verwenden.
+
+
+
+NOTE: Wenn Sie Ihren Schlüssel verlieren, können Sie einen neuen Zugangsschlüssel erstellen und den verlorenen löschen
+
+image:access-keys.png["Aktualisierungstoken"]
+
+
+
+=== Abrufen eines Aktualisierungstokens von NetApp Cloud Central
+
+. Melden Sie sich mit Ihren Kontoanmeldeinformationen bei Ihrem Cloud Central-Konto an unter https://services.cloud.netapp.com/refresh-token[]
+. Generieren Sie ein Aktualisierungstoken und speichern Sie es für Bereitstellungen.
+
+
+image:token-authentication.png["Aktualisierungstoken"]
+
+
+
+=== Client-ID abrufen
+
+. Greifen Sie auf die API-Seite zu, um die Client-ID zu kopieren unter https://services.cloud.netapp.com/developer-hub[] .
+. Klicken Sie oben rechts auf „Authentifizierung erfahren“.
+. Kopieren Sie aus dem angezeigten Authentifizierungsfenster die Client-ID aus dem regulären Zugriff, wenn Sie zur Anmeldung einen Benutzernamen/ein Passwort benötigen.  Verbundbenutzer mit SSO sollten die Client-ID aus der Registerkarte „Token aktualisieren“ kopieren.
+
+
+image:client-id.png["Client-ID"]
+
+
+
+=== Schlüsselpaar von AWS abrufen
+
+. Suchen Sie in der AWS-Konsole nach „Schlüsselpaar“ und erstellen Sie ein Schlüsselpaar mit „pem“.  Merken Sie sich den Namen Ihres Schlüsselpaars. Wir werden ihn zum Bereitstellen des Connectors verwenden.
+
+
+image:key-pair.png["Schlüsselpaar"]
+
+
+
+=== Konto-ID abrufen
+
+. Klicken Sie im Cloud Manager auf Konto –> Konten verwalten und kopieren Sie dann die Konto-ID zur Verwendung in Variablen für AWX.
+
+
+image:account-id.png["Client-ID"]

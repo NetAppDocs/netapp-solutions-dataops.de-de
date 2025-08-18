@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: xcp/xcp-bp-scenarios.html 
+keywords:  
+summary:  
+---
+= Überblick
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+In diesem Abschnitt werden Kundenszenarien und deren Architekturen beschrieben.

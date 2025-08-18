@@ -1,0 +1,89 @@
+= 
+:allow-uri-read: 
+
+
+In diesem Abschnitt werden die erforderlichen Schritte zum Konfigurieren der Parameter in AWX/Ansible Tower beschrieben, die die Umgebung für die Nutzung automatisierter NetApp -Lösungen vorbereiten.
+
+. Konfigurieren Sie das Inventar.
++
+.. Navigieren Sie zu Ressourcen → Bestände → Hinzufügen und klicken Sie auf Bestand hinzufügen.
+.. Geben Sie den Namen und die Organisationsdetails ein und klicken Sie auf „Speichern“.
+.. Klicken Sie auf der Seite „Inventare“ auf die Inventarressourcen, die Sie gerade erstellt haben.
+.. Wenn Inventarvariablen vorhanden sind, fügen Sie sie in das Variablenfeld ein.
+.. Gehen Sie zum Untermenü „Gruppen“ und klicken Sie auf „Hinzufügen“.
+.. Geben Sie den Namen der Gruppe ein, kopieren Sie die Gruppenvariablen (falls erforderlich) und klicken Sie auf „Speichern“.
+.. Klicken Sie auf die erstellte Gruppe, gehen Sie zum Untermenü „Hosts“ und klicken Sie auf „Neuen Host hinzufügen“.
+.. Geben Sie den Hostnamen und die IP-Adresse des Hosts ein, fügen Sie die Hostvariablen ein (falls erforderlich) und klicken Sie auf „Speichern“.
+
+
+. Erstellen Sie Anmeldeinformationstypen.  Bei Lösungen mit ONTAP, Element, VMware oder einer anderen HTTPS-basierten Transportverbindung müssen Sie den Anmeldeinformationstyp so konfigurieren, dass er mit den Benutzernamen- und Kennworteinträgen übereinstimmt.
++
+.. Navigieren Sie zu „Administration“ → „Anmeldeinformationstypen“ und klicken Sie auf „Hinzufügen“.
+.. Geben Sie den Namen und die Beschreibung ein.
+.. Fügen Sie den folgenden Inhalt in die Eingabekonfiguration ein:
+
+
+
+
+[listing]
+----
+fields:
+- id: username
+type: string
+label: Username
+- id: password
+type: string
+label: Password
+secret: true
+- id: vsadmin_password
+type: string
+label: vsadmin_password
+secret: true
+----
+. Fügen Sie den folgenden Inhalt in die Injektorkonfiguration ein:
+
+
+[listing]
+----
+extra_vars:
+password: '{{ password }}'
+username: '{{ username }}'
+vsadmin_password: '{{ vsadmin_password }}'
+----
+. Konfigurieren Sie die Anmeldeinformationen.
++
+.. Navigieren Sie zu Ressourcen → Anmeldeinformationen und klicken Sie auf Hinzufügen.
+.. Geben Sie den Namen und die Organisationsdetails ein.
+.. Wählen Sie den richtigen Anmeldeinformationstyp aus. Wenn Sie die Standard-SSH-Anmeldung verwenden möchten, wählen Sie den Typ „Maschine“ oder alternativ den benutzerdefinierten Anmeldeinformationstyp, den Sie erstellt haben.
+.. Geben Sie die anderen entsprechenden Details ein und klicken Sie auf Speichern.
+
+
+. Konfigurieren Sie das Projekt.
++
+.. Navigieren Sie zu Ressourcen → Projekte und klicken Sie auf Hinzufügen.
+.. Geben Sie den Namen und die Organisationsdetails ein.
+.. Wählen Sie „Git“ als Anmeldeinformationstyp für die Quellcodeverwaltung aus.
+.. Fügen Sie die Quellcodeverwaltungs-URL (oder Git-Klon-URL) ein, die der jeweiligen Lösung entspricht.
+.. Wenn für die Git-URL ein Zugriffsschutz besteht, erstellen Sie optional die entsprechenden Anmeldeinformationen und fügen Sie sie in den Quellcodeverwaltungs-Anmeldeinformationen an.
+.. Klicken Sie auf Speichern.
+
+
+. Konfigurieren Sie die Jobvorlage.
++
+.. Navigieren Sie zu Ressourcen → Vorlagen → Hinzufügen und klicken Sie auf Jobvorlage hinzufügen.
+.. Geben Sie den Namen und die Beschreibung ein.
+.. Wählen Sie den Jobtyp aus. „Ausführen“ konfiguriert das System basierend auf einem Playbook und „Überprüfen“ führt einen Probelauf des Playbooks durch, ohne das System tatsächlich zu konfigurieren.
+.. Wählen Sie das entsprechende Inventar, Projekt und die Anmeldeinformationen für das Playbook aus.
+.. Wählen Sie das Playbook aus, das Sie als Teil der Jobvorlage ausführen möchten.
+.. Normalerweise werden die Variablen während der Laufzeit eingefügt.  Um die Eingabeaufforderung zum Ausfüllen der Variablen während der Laufzeit zu erhalten, aktivieren Sie daher unbedingt das Kontrollkästchen „Beim Start auffordern“ neben dem Feld „Variable“.
+.. Geben Sie bei Bedarf weitere Details ein und klicken Sie auf „Speichern“.
+
+
+. Starten Sie die Jobvorlage.
++
+.. Navigieren Sie zu Ressourcen → Vorlagen.
+.. Klicken Sie auf die gewünschte Vorlage und dann auf „Starten“.
+.. Füllen Sie beim Start alle Variablen aus, wenn Sie dazu aufgefordert werden, und klicken Sie dann erneut auf „Starten“.
+
+
+

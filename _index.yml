@@ -1,0 +1,32 @@
+---
+indexpage:
+  title: NetApp Datenmanagementlösungen
+  summary: NetApp -Lösungen sind eine Reihe strategischer und technologischer Funktionen,
+    die das NetApp -Portfolio an Produkten und Services hervorheben, um die wichtigsten
+    Geschäftsanforderungen unserer Kunden zu unterstützen.
+  lead: NetApp -Lösungen sind eine Reihe strategischer und technologischer Funktionen,
+    die das NetApp -Portfolio an Produkten und Services hervorheben, um die wichtigsten
+    Geschäftsanforderungen unserer Kunden zu unterstützen.
+  tiles:
+  - title: Erste Schritte
+    links:
+    - title: Was ist neu
+      url: "/whats-new.html"
+  - title: Datenmigration und Datenschutz
+    links:
+    - title: Schützen Sie Daten mit einem Cyber-Tresor
+      url: "/cyber-vault/ontap-cyber-vault-overview.html"
+    - title: Datenmigration mit NetApp XCP
+      url: "/xcp/xcp-bp-introduction.html"
+  - title: Lösungsautomatisierung
+    links:
+    - title: Einführung
+      url: "/automation/automation-introduction.html"
+  - title: Lösungsanfragen und Feedback
+    links:
+    - title: Automatisierung anfordern
+      url: https://github.com/NetAppDocs/netapp-solutions/issues/new?body=[Request%20Automation]%0d%0a%0d%0aSolution%20Name:%20%0d%0aRequest%20Title:%20%0d%0aDescription:%0d%0aSuggestions:&title=Request%20Automation%20-%20%3Crequest_title%3E
+    - title: Schlagen Sie eine neue Lösung vor
+      url: https://github.com/NetAppDocs/netapp-solutions/issues/new?body=[Request%20Solution]%0d%0a%0d%0aSolution%20Use%20Case:%20%0d%0aSolution%20Description:%20%0d%0aAdditional%20Comments:&title=Request%20Solution%20-%20%3Csolution%3E
+    - title: Geben Sie Feedback zur Lösung
+      url: https://github.com/NetAppDocs/netapp-solutions/issues/new?body=[Solution%20Feedback]%0d%0a%0d%0aSolution%20Name:%20%0d%0aSolution%20Feedback:%20%0d%0aAdditional%20Comments:&title=Solution%20Feedback%20-%20%3Csolution%3E

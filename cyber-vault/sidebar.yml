@@ -1,0 +1,39 @@
+---
+section: ontap-cybervault
+title: Datenschutz mit ONTAP Cyber Vault
+pdf-filename: ONTAP Cyber-Tresor
+entries:
+- title: ONTAP Cyber Vault-Übersicht
+  url: "/cyber-vault/ontap-cyber-vault-overview.html"
+- title: Cyber-Vault-Terminologie
+  url: "/cyber-vault/ontap-cyber-vault-terminology.html"
+- title: Cyber Vault-Dimensionierung für ONTAP
+  url: "/cyber-vault/ontap-cyber-vault-sizing.html"
+- title: Erstellen Sie einen Cyber-Tresor
+  url: "/cyber-vault/ontap-create-cyber-vault-task.html"
+- title: Cyber-Tresor-Härtung
+  url: "/cyber-vault/ontap-cyber-vault-hardening.html"
+- title: Cyber-Tresor-Interoperabilität
+  url: "/cyber-vault/ontap-cyber-vault-interop.html"
+- title: Häufig gestellte Fragen zum Cyber-Tresor
+  url: "/cyber-vault/ontap-cyber-vault-faq.html"
+- title: Cyber-Tresor-Ressourcen
+  url: "/cyber-vault/ontap-cyber-vault-resources.html"
+- title: Erstellen, Härten und Validieren eines ONTAP Cyber Vault mit PowerShell
+  entries:
+  - title: Überblick
+    url: "/cyber-vault/ontap-cyber-vault-ps-overview.html"
+  - title: Erstellung eines Cyber-Tresors
+    url: "/cyber-vault/ontap-cyber-vault-ps-creation.html"
+  - title: Cyber-Tresor-Härtung
+    url: "/cyber-vault/ontap-cyber-vault-ps-hardening.html"
+  - title: Cyber-Tresor-Validierung
+    url: "/cyber-vault/ontap-cyber-vault-ps-validation.html"
+  - title: Datenwiederherstellung aus dem Cyber-Tresor
+    url: "/cyber-vault/ontap-cyber-vault-ps-dr.html"
+  - title: Weitere Überlegungen
+    url: "/cyber-vault/ontap-cyber-vault-ps-consider.html"
+  - title: Konfigurieren, Analysieren, Cron-Skript
+    url: "/cyber-vault/ontap-cyber-vault-ps-script.html"
+  - title: Fazit zum Cyber-Tresor
+    url: "/cyber-vault/ontap-cyber-vault-ps-conclusion.html"

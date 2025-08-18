@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: cyber-vault/ontap-cyber-vault-ps-consider.html 
+keywords: Cyber vault, powershell, script, configuration, validation, hardening 
+summary: Dies ist die NetApp ONTAP Lösung zum Konfigurieren, Härten und Validieren eines ONTAP basierten Cyber-Vaults 
+---
+= Weitere Überlegungen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Beim Entwerfen und Bereitstellen eines ONTAP -basierten Cyber-Tresors sind zusätzliche Überlegungen anzustellen.
+
+
+
+== Überlegungen zur Kapazitätsdimensionierung
+
+Die Menge an Speicherplatz, die für ein ONTAP Cyber Vault-Zielvolume erforderlich ist, hängt von einer Reihe von Faktoren ab. Der wichtigste davon ist die Änderungsrate der Daten im Quellvolume.  Sowohl der Sicherungszeitplan als auch der Snapshot-Zeitplan auf dem Zielvolume wirken sich auf die Datenträgernutzung auf dem Zielvolume aus, und die Änderungsrate auf dem Quellvolume ist wahrscheinlich nicht konstant.  Es empfiehlt sich, einen Puffer an zusätzlicher Speicherkapazität bereitzustellen, der über den erforderlichen Wert hinausgeht, um zukünftigen Änderungen im Endbenutzer- oder Anwendungsverhalten Rechnung zu tragen.
+
+Um die Größe einer Beziehung für eine einmonatige Aufbewahrung in ONTAP festzulegen, müssen die Speicheranforderungen anhand mehrerer Faktoren berechnet werden, darunter die Größe des primären Datensatzes, die Datenänderungsrate (tägliche Änderungsrate) und die Einsparungen durch Deduplizierung und Komprimierung (falls zutreffend).
+
+Hier ist die schrittweise Vorgehensweise:
+
+Der erste Schritt besteht darin, die Größe des/der Quellvolumes/-volumes zu kennen, das/die Sie mit dem Cyber Vault schützen.  Dies ist die Basisdatenmenge, die zunächst zum Cyber-Vault-Ziel repliziert wird.  Schätzen Sie als Nächstes die tägliche Änderungsrate für den Datensatz.  Dies ist der Prozentsatz der Daten, der sich täglich ändert.  Es ist entscheidend, ein gutes Verständnis dafür zu haben, wie dynamisch Ihre Daten sind.
+
+Beispiel:
+
+* Größe des primären Datensatzes = 5 TB
+* Tägliche Änderungsrate = 5 % (0,05)
+* Deduplizierungs- und Komprimierungseffizienz = 50 % (0,50)
+
+
+Lassen Sie uns nun die Berechnung durchgehen:
+
+* Berechnen Sie die tägliche Datenänderungsrate:
++
+`Changed data per day = 5000 * 5% = 250GB`
+
+* Berechnen Sie die gesamten geänderten Daten für 30 Tage:
++
+`Total changed data in 30 days = 250 GB * 30 = 7.5TB`
+
+* Berechnen Sie den insgesamt erforderlichen Speicher:
++
+`TOTAL = 5TB + 7.5TB = 12.5TB`
+
+* Einsparungen durch Deduplizierung und Komprimierung anwenden:
++
+`EFFECTIVE = 12.5TB * 50% = 6.25TB`
+
+
+
+*Zusammenfassung des Speicherbedarfs*
+
+* Ohne Effizienz: Es wären *12,5 TB* erforderlich, um 30 Tage der Cyber-Vault-Daten zu speichern.
+* Bei 50 % Effizienz: Nach Deduplizierung und Komprimierung wären *6,25 TB* Speicherplatz erforderlich.
+
+
+
+NOTE: Snapshot-Kopien können aufgrund von Metadaten zusätzlichen Aufwand verursachen, dieser ist jedoch normalerweise geringfügig.
+
+
+NOTE: Wenn mehrere Sicherungen pro Tag durchgeführt werden, passen Sie die Berechnung an die Anzahl der täglich erstellten Snapshot-Kopien an.
+
+
+NOTE: Berücksichtigen Sie das Datenwachstum im Laufe der Zeit, um sicherzustellen, dass die Dimensionierung zukunftssicher ist.
+
+
+
+== Auswirkungen auf die Leistung der Primärquelle
+
+Da es sich bei der Datenübertragung um einen Pull-Vorgang handelt, können die Auswirkungen auf die Leistung des Primärspeichers je nach Arbeitslast, Datenvolumen und Häufigkeit der Sicherungen variieren.  Die Gesamtauswirkungen auf die Leistung des primären Systems sind jedoch im Allgemeinen moderat und beherrschbar, da die Datenübertragung darauf ausgelegt ist, Datenschutz- und Sicherungsaufgaben auf das Cyber-Vault-Speichersystem auszulagern.  Während der anfänglichen Einrichtung der Beziehung und der ersten vollständigen Sicherung wird eine erhebliche Datenmenge vom primären System auf das Cyber-Vault-System (das SnapLock Compliance Volume) übertragen.  Dies kann zu erhöhtem Netzwerkverkehr und einer erhöhten E/A-Last auf dem primären System führen.  Sobald die erste vollständige Sicherung abgeschlossen ist, muss ONTAP nur noch Blöcke verfolgen und übertragen, die sich seit der letzten Sicherung geändert haben.  Dies führt zu einer wesentlich geringeren E/A-Last im Vergleich zur ursprünglichen Replikation.  Inkrementelle Updates sind effizient und haben nur minimale Auswirkungen auf die Leistung des Primärspeichers.  Der Tresorprozess läuft im Hintergrund, wodurch die Wahrscheinlichkeit von Störungen der Produktionsarbeitslasten des primären Systems verringert wird.
+
+* Indem Sie sicherstellen, dass das Speichersystem über genügend Ressourcen (CPU, Speicher und IOPs) verfügt, um die zusätzliche Last zu bewältigen, können Sie die Auswirkungen auf die Leistung abmildern.
+

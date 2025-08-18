@@ -1,0 +1,46 @@
+= 
+:allow-uri-read: 
+
+
+. Anforderungen für den Ansible-Steuerknoten:
++
+.. Eine RHEL/CentOS-Maschine mit den folgenden installierten Paketen:
++
+... Python3
+... Pip3
+... Ansible (Version größer als 2.10.0)
+... Git
+
+
+
+
+
+
+Wenn Sie über eine neue RHEL/CentOS-Maschine verfügen, auf der die oben genannten Anforderungen nicht installiert sind, führen Sie die folgenden Schritte aus, um diese Maschine als Ansible-Steuerknoten einzurichten:
+
+. Aktivieren Sie das Ansible-Repository für RHEL-8/RHEL-7
++
+.. Für RHEL-8 (führen Sie den folgenden Befehl als Root aus)
++
+[source, cli]
+----
+subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
+----
+.. Für RHEL-7 (führen Sie den folgenden Befehl als Root aus)
++
+[source, cli]
+----
+subscription-manager repos --enable rhel-7-server-ansible-2.9-rpms
+----
+
+
+. Fügen Sie den folgenden Inhalt in das Terminal ein
++
+[source, cli]
+----
+sudo yum -y install python3 >> install.log
+sudo yum -y install python3-pip >> install.log
+python3 -W ignore -m pip --disable-pip-version-check install ansible >> install.log
+sudo yum -y install git >> install.log
+----
+

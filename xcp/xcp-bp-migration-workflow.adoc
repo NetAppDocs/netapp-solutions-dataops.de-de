@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: xcp/xcp-bp-migration-workflow.html 
+keywords: migration, workflow, nas, shares, copy, sync, truck, azure, expressroute 
+summary: Die Migration umfasst verschiedene Phasen, die zur besseren Planung und Durchführung der Migration durchlaufen werden müssen.  Um Daten von NAS-Speichern von Drittanbietern oder direkt angeschlossenen exportierten NAS-Speichern mithilfe von NetApp XCP zu migrieren, befolgen Sie die Migrationsrichtlinien in diesem Abschnitt. 
+---
+= Migrationsworkflow
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Migration umfasst verschiedene Phasen, die zur besseren Planung und Durchführung der Migration durchlaufen werden müssen.  Um Daten von NAS-Speichern von Drittanbietern oder direkt angeschlossenen exportierten NAS-Speichern mithilfe von NetApp XCP zu migrieren, befolgen Sie die Migrationsrichtlinien in diesem Abschnitt.
+
+Die folgende Abbildung veranschaulicht den Migrationsworkflow von einem beliebigen NAS zu einem NetApp NAS.
+
+image:xcp-bp-003.png["Abbildung, die einen Eingabe-/Ausgabedialog zeigt oder schriftlichen Inhalt darstellt"]
+
+
+
+== Vor Ort
+
+Der Migrationsworkflow von einem beliebigen NAS zu einem NetApp NAS umfasst die folgenden Schritte:
+
+. Entdecken Sie die NAS-Freigaben und -Daten.
+. Scannen Sie die Daten und erstellen Sie einen Bericht, um das Layout der Daten zu ermitteln.
+. Erstellen Sie eine Baseline, indem Sie den Befehl „XCP Copy“ ausführen.  Wählen Sie für schnellere Migrationen mehrere XCP-Instanzen aus und teilen Sie die Arbeitslast auf Unterordnerebene auf, um parallele Migrationsaufträge zu initiieren.
+. Verwenden Sie für inkrementelle Updates die XCP-Synchronisierung, bis die Änderungsrate für das Umstellungsfenster niedrig ist.
+. Markieren Sie die Quelle als schreibgeschützt, um eine letzte Synchronisierung durchzuführen, indem Sie den XCP-Synchronisierungsbefehl ausführen, um die Migration abzuschließen.
+. Um zu überprüfen, ob die Daten korrekt übertragen wurden, vergleichen Sie Quelle und Ziel, indem Sie den `xcp verify` Befehl.
+
+
+
+
+== Wolke
+
+Für die Cloud können Sie einem ähnlichen Migrationsworkflow vor Ort folgen, wenn die Konnektivität zwischen dem lokalen Standort und der Cloud über Direct Connect (AWS), ExpressRoute (Azure) oder Cloud Interconnect (GCP) erfolgt.
+
+Die folgende Abbildung veranschaulicht den Migrationsworkflow von lokalen Standorten in die Cloud.
+
+image:xcp-bp-004.png["Abbildung, die einen Eingabe-/Ausgabedialog zeigt oder schriftlichen Inhalt darstellt"]
+
+Wenn zwischen dem lokalen Standort und der Cloud keine direkte Internetverbindung besteht, müssen Sie die Daten mithilfe einer Offline-Datentransportmethode wie beispielsweise einem LKW vom lokalen Standort in die Cloud übertragen.  Jeder Cloud-Dienstanbieter verwendet eine andere Methode mit unterschiedlicher Terminologie, um Daten in sein Rechenzentrum zu verschieben.
+
+Die folgende Abbildung zeigt die Data Mover-Lösung für den lokalen Datentransfer nach Azure ohne ExpressRoute.
+
+image:xcp-bp-005.png["Abbildung, die einen Eingabe-/Ausgabedialog zeigt oder schriftlichen Inhalt darstellt"]
+
+Eine ähnliche Architektur können Sie mit den jeweiligen Komponenten der verschiedenen Cloud-Dienstanbieter nutzen.

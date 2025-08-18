@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: cyber-vault/ontap-cyber-vault-ps-dr.html 
+keywords: Cyber vault, powershell, script, configuration, validation, hardening 
+summary: Dies ist die NetApp ONTAP Lösung zum Konfigurieren, Härten und Validieren eines ONTAP basierten Cyber-Vaults 
+---
+= ONTAP Cyber Vault-Datenwiederherstellung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Daten im Produktionsrechenzentrum zerstört werden, können die Daten aus dem Cyber-Tresor sicher in der gewählten Umgebung wiederhergestellt werden.  Anders als bei einer physisch luftgekapselten Lösung wird der luftgekapselte ONTAP Cyber Vault mithilfe nativer ONTAP -Funktionen wie SnapLock Compliance und SnapMirror erstellt.  Das Ergebnis ist ein Wiederherstellungsprozess, der sowohl schnell als auch einfach durchzuführen ist.
+
+Im Falle eines Ransomware-Angriffs und der Notwendigkeit einer Wiederherstellung aus dem Cyber-Tresor ist der Wiederherstellungsprozess einfach und unkompliziert, da die im Cyber-Tresor gespeicherten Snapshot-Kopien zur Wiederherstellung der verschlüsselten Daten verwendet werden.
+
+image:ontap-cyber-vault-data-recovery.png["Beziehung wiederherstellen"]
+
+Wenn die Anforderung darin besteht, eine schnellere Methode bereitzustellen, um Daten bei Bedarf wieder online zu bringen, um die Daten für die Wiederherstellung schnell zu validieren, zu isolieren und zu analysieren.  Dies lässt sich leicht erreichen, indem Sie FlexClone verwenden und die Option „Snaplock-Typ“ auf „Nicht-Snaplock-Typ“ einstellen.
+
+
+NOTE: Ab ONTAP 9.13.1 kann eine gesperrte Snapshot-Kopie auf dem Ziel SnapLock Volume einer SnapLock Vault-Beziehung sofort wiederhergestellt werden, indem ein FlexClone mit der Snaplock-Typ-Option „Nicht-Snaplock“ erstellt wird.  Geben Sie beim Ausführen des Vorgangs zum Erstellen eines Volume-Klons die Snapshot-Kopie als „übergeordneten Snapshot“ an.  Weitere Informationen zum Erstellen eines FlexClone -Volumes mit einem SnapLock -Typlink:https://docs.netapp.com/us-en/ontap/volumes/create-flexclone-task.html?q=volume+clone["Hier."]
+
+
+NOTE: Durch das Üben von Wiederherstellungsverfahren aus dem Cyber-Tresor wird sichergestellt, dass die richtigen Schritte zum Herstellen einer Verbindung mit dem Cyber-Tresor und zum Abrufen von Daten eingerichtet werden.  Die Planung und Prüfung des Verfahrens ist für jede Wiederherstellung nach einem Cyberangriff von entscheidender Bedeutung.

@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+keywords: Cyber vault, cybervault, cyber-vault, data protection, security, ransomware, ONTAP 
+permalink: cyber-vault/ontap-cyber-vault-overview.html 
+summary: Dies ist eine Übersicht über die NetApp ONTAP Cyber Vault-Lösung, unterstützt durch SnapLock Compliance für unveränderliche und unlöschbare Datenaufbewahrung. 
+---
+= ONTAP Cyber Vault-Übersicht
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die größte Bedrohung, die die Implementierung eines Cyber-Tresors erforderlich macht, ist die zunehmende Verbreitung und zunehmende Raffinesse von Cyber-Angriffen, insbesondere Ransomware und Datenschutzverletzungen. link:https://www.verizon.com/business/resources/reports/dbir/["Mit einem Anstieg des Phishing"^] und immer ausgefeiltere Methoden zum Diebstahl von Anmeldeinformationen. Die Anmeldeinformationen, die zum Starten eines Ransomware-Angriffs verwendet werden, könnten dann für den Zugriff auf Infrastruktursysteme verwendet werden.  In diesen Fällen besteht selbst bei gehärteten Infrastruktursystemen die Gefahr eines Angriffs.  Die einzige Verteidigung gegen ein kompromittiertes System besteht darin, Ihre Daten in einem Cyber-Tresor zu schützen und zu isolieren.
+
+Der ONTAP -basierte Cyber Vault von NetApp bietet Unternehmen eine umfassende und flexible Lösung zum Schutz ihrer wichtigsten Datenbestände.  Durch die Nutzung logischer Air-Gapping-Funktionen mit robusten Härtungsmethoden ermöglicht Ihnen ONTAP die Erstellung sicherer, isolierter Speicherumgebungen, die widerstandsfähig gegen sich entwickelnde Cyberbedrohungen sind.  Mit ONTAP können Sie die Vertraulichkeit, Integrität und Verfügbarkeit Ihrer Daten sicherstellen und gleichzeitig die Agilität und Effizienz Ihrer Speicherinfrastruktur aufrechterhalten.
+
+
+NOTE: Ab Juli 2024 werden Inhalte aus technischen Berichten, die zuvor als PDFs veröffentlicht wurden, in die ONTAP Produktdokumentation integriert.  Darüber hinaus erhalten neue technische Berichte (TRs) wie dieses Dokument keine TR-Nummern mehr.
+
+
+
+== Was ist ein Cyber-Tresor?
+
+Ein Cyber-Tresor ist eine spezielle Datenschutztechnik, bei der kritische Daten in einer isolierten Umgebung, getrennt von der primären IT-Infrastruktur, gespeichert werden.
+
+„Air-gapped“, *unveränderliches* und *unauslöschliches* Daten-Repository, das immun gegen Bedrohungen ist, die das Hauptnetzwerk betreffen, wie etwa Malware, Ransomware oder sogar Insider-Bedrohungen.  Ein Cyber-Tresor kann mit *unveränderlichen* und *unauslöschlichen* Snapshots erreicht werden.
+
+Bei Air-Gapping-Backups mit herkömmlichen Methoden müssen Platz geschaffen und das primäre und sekundäre Medium physisch getrennt werden.  Durch die Verlagerung der Medien an einen anderen Standort und/oder die Trennung der Verbindung haben böswillige Akteure keinen Zugriff auf die Daten.  Dies schützt die Daten, kann jedoch zu längeren Wiederherstellungszeiten führen.
+
+
+
+== NetApps Ansatz für Cyber Vault
+
+Zu den wichtigsten Funktionen der NetApp Referenzarchitektur für einen Cyber Vault gehören:
+
+* Sichere, isolierte Speicherinfrastruktur (z. B. Air-Gapped-Speichersysteme)
+* Kopien der Daten müssen ausnahmslos sowohl *unveränderlich* als auch *unlöschbar* sein
+* Strenge Zugriffskontrollen und Multi-Faktor-Authentifizierung
+* Schnelle Datenwiederherstellungsfunktionen
+
+
+Sie können NetApp Storage mit ONTAP als Air-Gap-Cyber-Tresor verwenden, indem Sielink:https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["SnapLock Compliance zum WORM-Schutz von Snapshot-Kopien"^] .  Sie können alle grundlegenden SnapLock Compliance -Aufgaben im Cyber-Tresor ausführen.  Nach der Konfiguration werden Cyber Vault-Volumes automatisch geschützt, sodass die Snapshot-Kopien nicht manuell in WORM übertragen werden müssen.  Weitere Informationen zum logischen Air-Gapping finden Sie in diesemlink:https://www.netapp.com/blog/ransomware-protection-snaplock/["Blog"^]
+
+SnapLock Compliance wird verwendet, um die Bank- und Finanzvorschriften SEC 70-a-4(f), FINRA 4511(c) und CFTC 1.31(c)-(d) einzuhalten.  Die Einhaltung dieser Vorschriften wurde von Cohasset Associates zertifiziert (Prüfbericht auf Anfrage erhältlich).  Durch die Verwendung von SnapLock Compliance mit dieser Zertifizierung erhalten Sie einen gehärteten Mechanismus zum Air-Gapping Ihrer Daten, auf den sich die größten Finanzinstitute der Welt verlassen, um sowohl die Aufbewahrung als auch den Abruf von Bankunterlagen sicherzustellen.
+
+image:ontap-cyber-vault-logical-air-gap.png["Logisch abgesicherter Cyber-Tresor mit NetApp ONTAP"]

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+keywords: Cyber vault, cybervault, cyber-vault, data protection, security, ransomware, ONTAP, hardening 
+permalink: cyber-vault/ontap-cyber-vault-hardening.html 
+summary: Zusätzliche Schritte zur Absicherung eines Cyber-Tresors für ONTAP empfohlen 
+---
+= Cyber-Tresor-Härtung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dies sind die zusätzlichen Empfehlungen zum Härten eines ONTAP Cyber Vault.  Weitere Empfehlungen und Vorgehensweisen finden Sie im ONTAP Härtungshandbuch weiter unten.
+
+
+
+== Empfehlungen zur Cyber-Tresorhärtung
+
+* Isolieren Sie die Verwaltungsebenen des Cyber-Tresors
+* Aktivieren Sie keine Daten-LIFs auf dem Zielcluster, da diese einen zusätzlichen Angriffsvektor darstellen.
+* Beschränken Sie auf dem Zielcluster den Intercluster-LIF-Zugriff auf den Quellcluster mit einer Servicerichtlinie.
+* Segmentieren Sie das Management-LIF auf dem Zielcluster für eingeschränkten Zugriff mit einer Servicerichtlinie und einem Bastion-Host
+* Beschränken Sie den gesamten Datenverkehr vom Quellcluster zum Cyber Vault, um nur die für den SnapMirror Verkehr erforderlichen Ports zuzulassen
+* Deaktivieren Sie nach Möglichkeit alle nicht benötigten Verwaltungszugriffsmethoden innerhalb von ONTAP , um die Angriffsfläche zu verringern.
+* Aktivieren Sie die Überwachungsprotokollierung und die Remote-Protokollspeicherung
+* Aktivieren Sie die Multi-Admin-Verifizierung und verlangen Sie die Verifizierung durch einen Administrator außerhalb Ihrer regulären Speicheradministratoren (z. B. CISO-Mitarbeiter).
+* Implementieren Sie rollenbasierte Zugriffskontrollen
+* Administrative Multifaktor-Authentifizierung für System Manager und SSH erforderlich
+* Verwenden Sie die tokenbasierte Authentifizierung für Skripte und REST-API-Aufrufe
+
+
+Bitte beachten Sie dielink:https://docs.netapp.com/us-en/ontap/ontap-security-hardening/security-hardening-overview.html["ONTAP -Härtungshandbuch"] ,link:https://docs.netapp.com/us-en/ontap/multi-admin-verify/index.html["Übersicht über die Multi-Admin-Verifizierung"^] Undlink:https://www.netapp.com/media/17055-tr4647.pdf["ONTAP Multifaktor-Authentifizierungshandbuch"^] Informationen zum Durchführen dieser Härtungsschritte.

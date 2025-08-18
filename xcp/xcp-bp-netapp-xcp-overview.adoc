@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: xcp/xcp-bp-netapp-xcp-overview.html 
+keywords: multithread, nas, analytics, directory tree, deletion, delete, prerequisites 
+summary: 'NetApp XCP überträgt Daten mithilfe von Multithreads und anpassbaren Funktionen.  Es ist für drei Hauptanwendungsfälle konzipiert: Datenverschiebung oder -migration, Dateisystemanalyse und schnelles Löschen von Verzeichnisbäumen.' 
+---
+= NetApp XCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp XCP überträgt Daten mithilfe von Multithreads und anpassbaren Funktionen.  Es ist für drei Hauptanwendungsfälle konzipiert: Datenverschiebung oder -migration, Dateisystemanalyse und schnelles Löschen von Verzeichnisbäumen.
+
+
+
+== Datenverschiebung oder -migration
+
+NetApp XCP überträgt Daten von jedem NAS zu NetApp NAS.  Dieser Prozess besteht aus vier Hauptvorgängen: Scannen, Kopieren, Synchronisieren und Überprüfen.  Es gibt einige zusätzliche Funktionen, die die Datenüberwachung und -übertragung erleichtern:
+
+* *Scan.*  Bietet ein übergeordnetes Layout von NAS- und MapR/HDFS-Daten.
+* *Kopie.*  Führt eine Basisdatenübertragung durch.
+* *Synchronisieren.*  Führt die inkrementelle Datenübertragung durch.
+* *Verifizieren.*  Führt eine gründliche Überprüfung des Ziels durch.
+* *Anzeigen (optional).*  Erkennt NAS-Freigaben.
+
+
+Die folgende Abbildung veranschaulicht XCP-Datenmigrations- und Replikationsvorgänge.
+
+image:xcp-bp-001.png["Abbildung, die einen Eingabe-/Ausgabedialog zeigt oder schriftlichen Inhalt darstellt"]
+
+
+
+== Dateisystemanalyse
+
+NetApp XCP ermöglicht Ihnen nativ die Identifizierung, Prüfung und Analyse unstrukturierter Daten, um bessere Erkenntnisse zu gewinnen – eine wichtige Voraussetzung für Unternehmenskunden, die diese Erkenntnisse für eine bessere Planung, die Operationalisierung hochwertiger digitaler Assets und für die Datenverwaltung durch Berichterstellung und Bewertung nutzen möchten.
+
+Kunden, die mit sensiblen Daten arbeiten, können NetApp XCP verwenden, um typische betriebliche Fragen zu beantworten, beispielsweise die folgenden:
+
+* Wo sind meine Daten?
+* Wie viele Daten und welche Dateitypen haben wir?
+* Welche Daten werden aktiv genutzt und wie viele liegen brach?
+
+
+Die folgende Abbildung veranschaulicht die NetApp XCP-Dateianalysekommunikation über die GUI.
+
+image:xcp-bp-002.png["Abbildung, die einen Eingabe-/Ausgabedialog zeigt oder schriftlichen Inhalt darstellt"]
+
+
+
+== Löschen
+
+Für Speicherteams und EDA-Workloads (Electronic Design Automation) kann es eine große Herausforderung sein, große Verzeichnisse zu bereinigen, unabhängig davon, ob es sich um veraltete Daten oder Testdaten handelt, die bereinigt werden müssen, um Speicherplatz freizugeben.  XCP bietet eine Schnelllöschfunktion, mit der ein kompletter Verzeichnisbaum gelöscht werden kann.  Die NetApp XCP-Löschfunktion entfernt Dateien und Ordner aus einem bestimmten NAS-Pfad.  Sie können die Übereinstimmungsfilter nutzen, um einen bestimmten Satz von Dateien und Ordnern zu löschen.  Bei einer großen Anzahl von Dateien und Ordnern können Sie die Option „Erzwingen“ verwenden, bei der zum Löschen keine Bestätigung erforderlich ist.
+
+
+
+== Unterstützung für Live Source Migration
+
+Die in XCP 1.7 enthaltene Unterstützung für Live Source Migration ermöglicht die Migration von einer Datenquelle, die aktiv verwendet wird (Lese- und Schreibaktivität).  XCP lässt Dateien aus, die während des Migrationsauftrags verwendet werden, z. B. beim Ausführen von Kopier- und Synchronisierungsvorgängen. Informationen zu übersprungenen Dateien werden im XCP-Protokoll erfasst.
+
+Diese Funktion unterstützt Änderungen an der Quelle, jedoch keine Änderungen am Ziel.  Während der Migration sollte das Ziel nicht aktiv sein.  Die Unterstützung für die Live Source Migration ist nur für NFS-Migrationen verfügbar.
+
+
+NOTE: Für Live Source Migrations sind keine besonderen Einstellungen erforderlich.
+
+
+
+== Voraussetzungen für XCP
+
+Bevor Sie NetApp XCP bereitstellen, müssen die folgenden Voraussetzungen erfüllt sein:
+
+. Überprüfen Sie die vom NFS-Server verwendeten NFS-Ports, indem Sie den folgenden Befehl ausführen:
++
+....
+rpcinfo -p < NAS IP or on-prem nfs data LIF ip >
+....
+. Um auf den Speicherort zuzugreifen, an dem Sie die XCP-Vorgänge ausführen, z. B. lokale oder Cloud-Instanzen (z. B. Azure-, AWS- oder Google-VM-Instanzen), öffnen Sie die Firewall-Ports für die NFS-Ports.
+. Überprüfen Sie, ob der NFS-Port vom XCP-Server aus erreichbar ist, indem Sie den Telnet-Befehl verwenden. `<on-prem nfs data LIF ip or NAS IP > 2049` .  Der Standardport ist 2049.  Wenn Ihre Umgebung einen anderen Port hat, verwenden Sie diese IP.
+. Überprüfen Sie bei NFS, ob die Freigaben vom XCP-Server aus zugänglich sind, indem Sie den `showmount -e < NAS IP >` Befehl.
+. Erhöhen Sie die Anzahl der Inodes auf dem Zielvolume auf einen Wert, der die Dateianzahl (Anzahl der Dateien) der Quelldateien übersteigt.
+. Laden Sie die XCP-Lizenz von der https://xcp.netapp.com/license/xcp.xwic["NetApp XCP-Lizenzportal"^] .  
++
+.. Sie müssen über ein NetApp -Konto unter mysupport.netapp.com verfügen oder sich kostenlos registrieren.
+.. Laden Sie die Lizenz herunter und halten Sie sie bereit.
+
+
+. Erstellen Sie vor Ort eine NFS-Freigabe für jedes Azure NetApp Volume oder für den Cloud Volume Service (Premium-Servicelevel) in der Cloud für den XCP-Katalog.
+. Erstellen Sie ein NAS-Volume und konfigurieren Sie die Freigabe für das Datenziel.
+. Für mehrere XCP-Instanzen benötigen Sie einen oder mehrere Server oder Cloud-Instanzen, um die Daten aus mehreren Quellordnern oder -dateien zum Ziel zu übertragen.
+. Die Maxdir-Größe (Standard ist 308 MB) definiert die maximale Dateianzahl (ungefähr eine Million) in einem einzelnen Ordner.  Erhöhen Sie den Maxdir-Größenwert, um die Dateianzahl zu erhöhen.  Eine Erhöhung des Wertes wirkt sich auf zusätzliche CPU-Zyklen aus.
+. In der Cloud empfiehlt NetApp ExpressRoute (Azure), Direct Connect (AWS) oder Cloud Interconnect (GCP) zwischen lokalen Standorten und der Cloud.
+

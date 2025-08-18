@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+keywords: Cyber vault, cybervault, cyber-vault, data protection, security, ransomware, ONTAP, hardening 
+permalink: cyber-vault/ontap-cyber-vault-terminology.html 
+summary: Cyber Vault mit ONTAP -Terminologie 
+---
+= Cyber Vault ONTAP Terminologie
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dies sind die in Cyber-Vault-Architekturen üblicherweise verwendeten Begriffe.
+
+*Autonomous Ransomware Protection (ARP)* – Die Funktion Autonomous Ransomware Protection (ARP) nutzt eine Workload-Analyse in NAS-Umgebungen (NFS und SMB), um proaktiv und in Echtzeit abnormale Aktivitäten zu erkennen und davor zu warnen, die auf einen Ransomware-Angriff hindeuten könnten.  Bei Verdacht auf einen Angriff erstellt ARP zusätzlich zum bestehenden Schutz durch geplante Snapshot-Kopien auch neue Snapshot-Kopien.  Weitere Informationen finden Sie imlink:https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["ONTAP -Dokumentation zum autonomen Ransomware-Schutz"^]
+
+*Air-Gap (Logisch)* - Sie können NetApp Storage mit ONTAP als logischen Air-Gap-Cyber-Vault konfigurieren, indem Sielink:https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["SnapLock Compliance zum WORM-Schutz von Snapshot-Kopien"^]
+
+*Air-Gap (physisch)* – Ein physisches Air-Gap-System hat keine Netzwerkverbindung.  Mithilfe von Bandsicherungen können Sie die Bilder an einen anderen Ort verschieben.  Der logische Air-Gap von SnapLock Compliance ist genauso robust wie ein physisches Air-Gap-System.
+
+*Bastion-Host* – Ein dedizierter Computer in einem isolierten Netzwerk, der so konfiguriert ist, dass er Angriffen standhält.
+
+*Unveränderliche Snapshot-Kopien* – Snapshot-Kopien, die ausnahmslos nicht geändert werden können (einschließlich einer Supportorganisation oder der Möglichkeit, das Speichersystem auf niedriger Ebene zu formatieren).
+
+*Unlöschbare Snapshot-Kopien* – Snapshot-Kopien, die ausnahmslos nicht gelöscht werden können (einschließlich einer Supportorganisation oder der Möglichkeit, das Speichersystem auf niedriger Ebene zu formatieren).
+
+*Manipulationssichere Snapshot-Kopien* – Manipulationssichere Snapshot-Kopien verwenden die SnapLock Compliance Clock-Funktion, um Snapshot-Kopien für einen bestimmten Zeitraum zu sperren.  Diese gesperrten Snapshots können von keinem Benutzer oder NetApp Support gelöscht werden.  Sie können gesperrte Snapshot-Kopien verwenden, um Daten wiederherzustellen, wenn ein Volume durch einen Ransomware-Angriff, Malware, Hacker, einen betrügerischen Administrator oder eine versehentliche Löschung kompromittiert wurde.  Weitere Informationen finden Sie imlink:https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html["ONTAP -Dokumentation zu manipulationssicheren Snapshot-Kopien"^]
+
+* SnapLock* – SnapLock ist eine leistungsstarke Compliance-Lösung für Organisationen, die WORM-Speicher verwenden, um Dateien aus regulatorischen und Governance-Gründen in unveränderter Form aufzubewahren. Weitere Informationen finden Sie im link:https://docs.netapp.com/us-en/ontap/snaplock/["ONTAP -Dokumentation zu SnapLock"^] .
+
+* SnapMirror* – SnapMirror ist eine Replikationstechnologie zur Notfallwiederherstellung, die für die effiziente Replikation von Daten entwickelt wurde.  SnapMirror kann einen Spiegel (oder eine exakte Kopie der Daten), einen Tresor (eine Kopie der Daten mit längerer Aufbewahrung der Snapshot-Kopie) oder beides auf einem sekundären System vor Ort oder in der Cloud erstellen.  Diese Kopien können für viele verschiedene Zwecke verwendet werden, beispielsweise im Katastrophenfall, zum Burst in die Cloud oder in einen Cyber-Tresor (bei Verwendung der Tresorrichtlinie und Sperren des Tresors).  Weitere Informationen finden Sie imlink:https://docs.netapp.com/us-en/ontap/concepts/snapmirror-disaster-recovery-data-transfer-concept.html["ONTAP -Dokumentation zu SnapMirror"^]
+
+* SnapVault* – In ONTAP 9.3 wurde SnapVault zugunsten der Konfiguration von SnapMirror mithilfe der Vault- oder Mirror-Vault-Richtlinie verworfen.  Dieser Begriff wird zwar noch verwendet, hat aber ebenfalls an Bedeutung verloren. Weitere Informationen finden Sie im link:https://docs.netapp.com/us-en/ontap/concepts/snapvault-archiving-concept.html["ONTAP -Dokumentation zu SnapVault"^] .

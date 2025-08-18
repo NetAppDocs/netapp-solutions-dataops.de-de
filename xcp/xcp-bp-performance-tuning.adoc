@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: xcp/xcp-bp-performance-tuning.html 
+keywords: performance, tuning, operations, windows 
+summary: Dieser Abschnitt enthält einige der Optimierungsparameter, die zur Verbesserung der Leistung von XCP-Operationen beitragen. 
+---
+= Leistungsoptimierung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dieser Abschnitt enthält einige der Optimierungsparameter, die zur Verbesserung der Leistung von XCP-Operationen beitragen:
+
+* Um eine bessere Skalierung zu erreichen und die Arbeitslast auf mehrere XCP-Instanzen zu verteilen, teilen Sie die Unterordner für jede XCP-Instanz für die Migration und Datenübertragung auf.
+* XCP kann maximale CPU-Ressourcen nutzen – je mehr CPU-Kerne, desto besser die Leistung.  Daher sollten Sie mehr CPUs im XCP-Server haben.  Wir haben 128 GB RAM und 48x-Core-CPUs im Labor getestet, die eine bessere Leistung lieferten als 8x-CPUs und 8 GB RAM.
+* XCP-Kopie mit dem `-parallel` Option basiert auf der Anzahl der CPUs.  Die Standardanzahl paralleler Threads (sieben) ist manchmal für die meisten XCP-Datenübertragungs- und Migrationsvorgänge ausreichend.  Bei XCP Windows entspricht die Anzahl der parallelen Prozesse standardmäßig der Anzahl der CPUs.  Die maximale Anzahl für die `-parallel` Die Option sollte kleiner oder gleich der Anzahl der Kerne sein.
+* 10GbE ist ein guter Anfang für die Datenübertragung.  Wir haben jedoch mit 25 GbE und 100 GbE getestet, die eine bessere Datenübertragung ermöglichten und für die Datenübertragung großer Dateigrößen empfohlen werden.
+* Bei Azure NetApp Files variiert die Leistung je nach Servicelevel.  Weitere Informationen finden Sie in der folgenden Tabelle, in der die Servicelevel und Leistungsdetails von Azure NetApp Files aufgeführt sind.
+
+
+|===
+| Service-Level | Standard | Prämie | Ultra 
+
+
+| Durchsatz | 16 MBit/s/Terabyte (TB) | 64 MB/s/TB | 128 MB/s/TB 
+
+
+| Workload-Typen | Allgemeine Dateifreigaben, E-Mail und Web | BMs, Datenbanken und Anwendungen | Latenzempfindliche Anwendungen 
+
+
+| Leistung erklärt | Standardleistung: 1.000 IOPS pro TB (16K I/O) und 16MBps/TB | Premium-Leistung – 4.000 IOPS pro TB (16.000 I/O) und 64 MBps/TB | Extreme Leistung: 8.000 IOPS pro TB (16.000 I/O) und 128 MBps/TB 
+|===
+Sie müssen basierend auf Durchsatz und Arbeitslasttypen das richtige Servicelevel auswählen.  Die meisten Kunden beginnen mit der Premium-Stufe und ändern die Servicestufe je nach Arbeitsbelastung.

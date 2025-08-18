@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+keywords: Cyber vault, cybervault, cyber-vault, data protection, security, ransomware, ONTAP, hardening 
+permalink: cyber-vault/ontap-cyber-vault-interop.html 
+summary: Cyber-Tresor-Interoperabilität 
+---
+= Cyber-Tresor-Interoperabilität
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit ONTAP -Hardware und -Software kann eine Cyber-Vault-Konfiguration erstellt werden.
+
+
+
+== ONTAP Hardware-Empfehlungen
+
+Alle einheitlichen physischen Arrays von ONTAP können für eine Cyber-Vault-Implementierung verwendet werden.
+
+* FAS Hybridspeicher bietet die kosteneffizienteste Lösung.
+* Die AFF C-Serie bietet den effizientesten Stromverbrauch und die höchste Dichte.
+* Die AFF A-Serie ist die leistungsstärkste Plattform mit der besten RTO.  Mit der kürzlichen Ankündigung unserer neuesten AFF A-Serie bietet diese Plattform die beste Speichereffizienz ohne Leistungseinbußen.
+
+
+
+
+== ONTAP Softwareempfehlungen
+
+Ab ONTAP 9.14.1 können Sie Aufbewahrungszeiträume für bestimmte SnapMirror Labels in der SnapMirror Richtlinie der SnapMirror Beziehung angeben, sodass die replizierten Snapshot-Kopien vom Quell- zum Zielvolume für den in der Regel angegebenen Aufbewahrungszeitraum aufbewahrt werden.  Wenn keine Aufbewahrungsdauer angegeben ist, wird die Standardaufbewahrungsdauer des Zielvolumes verwendet.
+
+Ab ONTAP 9.13.1 können Sie eine gesperrte Snapshot-Kopie auf dem Ziel SnapLock Volume einer SnapLock Vault-Beziehung sofort wiederherstellen, indem Sie einen FlexClone mit der Snaplock-Typ-Option „Nicht-Snaplock“ erstellen und die Snapshot-Kopie beim Ausführen des Vorgangs zum Erstellen des Volume-Klons als „übergeordneten Snapshot“ angeben. Erfahren Sie mehr über link:https://docs.netapp.com/us-en/ontap/volumes/create-flexclone-task.html?q=volume+clone["Erstellen eines FlexClone -Volumes mit einem SnapLock -Typ"^] .
+
+
+
+== MetroCluster -Konfiguration
+
+Bei MetroCluster -Konfigurationen sollten Sie Folgendes beachten:
+
+* Sie können eine SnapVault Beziehung nur zwischen Synchronisierungsquellen-SVMs erstellen, nicht zwischen einer Synchronisierungsquellen-SVM und einer Synchronisierungsziel-SVM.
+* Sie können eine SnapVault Beziehung von einem Volume auf einem SVM mit Synchronisierungsquelle zu einem SVM zur Datenbereitstellung erstellen.
+* Sie können eine SnapVault Beziehung von einem Volume auf einem Daten bereitstellenden SVM zu einem DP-Volume auf einem Synchronisierungsquellen-SVM erstellen.
+

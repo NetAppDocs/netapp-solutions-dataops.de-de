@@ -1,0 +1,94 @@
+---
+sidebar: sidebar 
+keywords: Cyber vault, cybervault, cyber-vault, data protection, security, ransomware, ONTAP, hardening 
+permalink: cyber-vault/ontap-cyber-vault-sizing.html 
+summary: Anleitung zur Größenbestimmung eines ONTAP Cyber Vault 
+---
+= Cyber Vault-Dimensionierung mit ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um die Größe eines Cyber-Tresors zu bestimmen, müssen Sie wissen, wie viele Daten innerhalb einer bestimmten Recovery Time Objective (RTO) wiederhergestellt werden müssen.  Bei der Entwicklung einer Cyber-Vault-Lösung in der richtigen Größe spielen viele Faktoren eine Rolle.  Bei der Dimensionierung eines Cyber-Tresors müssen sowohl Leistung als auch Kapazität berücksichtigt werden.
+
+
+
+== Überlegungen zur Leistungsdimensionierung
+
+. Was sind die Quellplattformmodelle (FAS v AFF A-Serie v AFF C-Serie)?
+. Wie hoch sind Bandbreite und Latenz zwischen Quelle und Cyber-Tresor?
+. Wie groß sind die Dateigrößen und wie viele Dateien?
+. Was ist Ihr Ziel für die Wiederherstellungszeit?
+. Wie viele Daten müssen innerhalb der RTO wiederhergestellt werden?
+. Wie viele SnapMirror Fan-In-Beziehungen wird der Cyber-Tresor aufnehmen?
+. Wird es eine oder mehrere Wiederherstellungen gleichzeitig geben?
+. Werden diese mehrfachen Wiederherstellungen bei derselben Primärquelle erfolgen?
+. Wird SnapMirror während einer Wiederherstellung aus einem Tresor eine Replikation in den Tresor durchführen?
+
+
+
+
+=== Größenbeispiele
+
+Hier sind Beispiele für verschiedene Cyber-Vault-Konfigurationen.
+
+image:ontap-cyber-vault-sizing.png["Konfigurationsoptionen für Cyber Vault"]
+
+
+
+== Überlegungen zur Kapazitätsdimensionierung
+
+Die Menge an Speicherplatz, die für ein ONTAP Cyber Vault-Zielvolume erforderlich ist, hängt von einer Reihe von Faktoren ab. Der wichtigste davon ist die Änderungsrate der Daten im Quellvolume.  Sowohl der Sicherungszeitplan als auch der Snapshot-Zeitplan auf dem Zielvolume wirken sich auf die Datenträgernutzung auf dem Zielvolume aus, und die Änderungsrate auf dem Quellvolume ist wahrscheinlich nicht konstant.  Es empfiehlt sich, einen Puffer an zusätzlicher Speicherkapazität bereitzustellen, der über den erforderlichen Wert hinausgeht, um zukünftigen Änderungen im Endbenutzer- oder Anwendungsverhalten Rechnung zu tragen.
+
+Um die Größe einer Beziehung für eine einmonatige Aufbewahrung in ONTAP festzulegen, müssen die Speicheranforderungen anhand mehrerer Faktoren berechnet werden, darunter die Größe des primären Datensatzes, die Datenänderungsrate (tägliche Änderungsrate) und die Einsparungen durch Deduplizierung und Komprimierung (falls zutreffend).
+
+Hier ist die schrittweise Vorgehensweise:
+
+Der erste Schritt besteht darin, die Größe des/der Quellvolumes/-volumes zu kennen, das/die Sie mit dem Cyber Vault schützen.  Dies ist die Basisdatenmenge, die zunächst zum Cyber-Vault-Ziel repliziert wird.  Schätzen Sie als Nächstes die tägliche Änderungsrate für den Datensatz.  Dies ist der Prozentsatz der Daten, der sich täglich ändert.  Es ist entscheidend, ein gutes Verständnis dafür zu haben, wie dynamisch Ihre Daten sind.
+
+Beispiel:
+
+* Größe des primären Datensatzes = 5 TB
+* Tägliche Änderungsrate = 5 % (0,05)
+* Deduplizierungs- und Komprimierungseffizienz = 50 % (0,50)
+
+
+Lassen Sie uns nun die Berechnung durchgehen:
+
+* Berechnen Sie die tägliche Datenänderungsrate:
++
+`Changed data per day = 5000 * 5% = 250GB`
+
+* Berechnen Sie die gesamten geänderten Daten für 30 Tage:
++
+`Total changed data in 30 days = 250 GB * 30 = 7.5TB`
+
+* Berechnen Sie den insgesamt erforderlichen Speicher:
++
+`TOTAL = 5TB + 7.5TB = 12.5TB`
+
+* Einsparungen durch Deduplizierung und Komprimierung anwenden:
++
+`EFFECTIVE = 12.5TB * 50% = 6.25TB`
+
+
+
+*Zusammenfassung des Speicherbedarfs*
+
+* Ohne Effizienz: Es wären *12,5 TB* erforderlich, um 30 Tage der Cyber-Vault-Daten zu speichern.
+* Bei 50 % Effizienz: Nach Deduplizierung und Komprimierung wären *6,25 TB* Speicherplatz erforderlich.
+
+
+
+NOTE: Snapshot-Kopien können aufgrund von Metadaten zusätzlichen Aufwand verursachen, dieser ist jedoch normalerweise geringfügig.
+
+
+NOTE: Wenn mehrere Sicherungen pro Tag durchgeführt werden, passen Sie die Berechnung an die Anzahl der täglich erstellten Snapshot-Kopien an.
+
+
+NOTE: Berücksichtigen Sie das Datenwachstum im Laufe der Zeit, um sicherzustellen, dass die Dimensionierung zukunftssicher ist.

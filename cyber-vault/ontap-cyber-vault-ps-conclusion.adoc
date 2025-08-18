@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: cyber-vault/ontap-cyber-vault-ps-conclusion.html 
+keywords: Cyber vault, powershell, script, configuration, validation, hardening 
+summary: Dies ist die NetApp ONTAP Lösung zum Konfigurieren, Härten und Validieren eines ONTAP basierten Cyber-Vaults 
+---
+= Fazit zur ONTAP Cyber Vault PowerShell-Lösung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durch die Nutzung von Air-Gapping mit den robusten Härtungsmethoden von ONTAP ermöglicht NetApp Ihnen die Erstellung einer sicheren, isolierten Speicherumgebung, die widerstandsfähig gegen sich entwickelnde Cyberbedrohungen ist.  All dies wird erreicht, während die Agilität und Effizienz der vorhandenen Speicherinfrastruktur erhalten bleibt.  Dieser sichere Zugriff ermöglicht es Unternehmen, ihre strengen Sicherheits- und Betriebszeitziele mit minimalen Änderungen an ihrem bestehenden Personal-, Prozess- und Technologierahmen zu erreichen.
+
+ONTAP Cyber Vault verwendet native Funktionen in ONTAP und bietet einen einfachen Ansatz für zusätzlichen Schutz, um unveränderliche und unlöschbare Kopien Ihrer Daten zu erstellen.  Durch die Ergänzung der allgemeinen Sicherheitslage um den ONTAP basierten Cyber Vault von NetApp ergeben sich folgende Vorteile:
+
+* Erstellen Sie eine Umgebung, die von den Produktions- und Backup-Netzwerken getrennt und nicht verbunden ist, und beschränken Sie den Benutzerzugriff darauf.
+

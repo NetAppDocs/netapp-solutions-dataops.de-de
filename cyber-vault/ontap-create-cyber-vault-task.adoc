@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+keywords: Cyber vault, cybervault, cyber-vault, data protection, security, ransomware, ONTAP 
+permalink: cyber-vault/ontap-create-cyber-vault-task.html 
+summary: Die auf dieser Seite enthaltenen Schritte helfen Ihnen beim Erstellen einer ONTAP -basierten Cyber-Vault-Lösung 
+---
+= Erstellen eines Cyber-Tresors mit ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die folgenden Schritte helfen bei der Erstellung eines Cyber-Tresors mit ONTAP.
+
+.Bevor Sie beginnen
+* Auf dem Quellcluster muss ONTAP 9 oder höher ausgeführt werden.
+* Die Quell- und Zielaggregate müssen 64-Bit sein.
+* Die Quell- und Zielvolumes müssen in Peering-Clustern mit Peering-SVMs erstellt werden. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/ontap/peering/index.html["Cluster-Peering"^] .
+* Wenn die automatische Volumevergrößerung deaktiviert ist, muss der freie Speicherplatz auf dem Zielvolume mindestens fünf Prozent größer sein als der verwendete Speicherplatz auf dem Quellvolume.
+
+
+.Informationen zu diesem Vorgang
+Die folgende Abbildung zeigt das Verfahren zum Initialisieren einer SnapLock Compliance Vault-Beziehung:
+
+image:ontap-cyber-vault-air-gap.png["Air-Gap-Cyber-Tresor mit NetApp ONTAP"]
+
+.Schritte
+. Identifizieren Sie das Ziel-Array, das zum Cyber-Tresor für den Empfang der Air-Gap-Daten werden soll.
+. Um den Cyber-Tresor auf dem Ziel-Array vorzubereiten,link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["Installieren Sie die ONTAP One-Lizenz"^] ,link:https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["Initialisieren Sie die Compliance Clock"^] , und wenn Sie eine ONTAP Version vor 9.10.1 verwenden,link:https://docs.netapp.com/us-en/ontap/snaplock/create-snaplock-aggregate-task.html["Erstellen Sie ein SnapLock Compliance -Aggregat"^] .
+. Erstellen Sie auf dem Ziel-Array ein SnapLock Compliance -Zielvolume vom Typ DP:
++
+`volume create -vserver SVM_name -volume volume_name -aggregate aggregate_name -snaplock-type compliance|enterprise -type DP -size size`
+
+. Ab ONTAP 9.10.1 können SnapLock und Nicht- SnapLock -Volumes auf demselben Aggregat vorhanden sein. Daher müssen Sie bei Verwendung von ONTAP 9.10.1 kein separates SnapLock -Aggregat mehr erstellen. Sie verwenden die Lautstärke `-snaplock-type` Option zum Angeben eines Compliance-Typs.  In ONTAP Versionen vor ONTAP 9.10.1 wird der SnapLock -Modus „Compliance“ vom Aggregat übernommen.  Versionsflexible Zielvolumes werden nicht unterstützt. Die Spracheinstellung des Zielvolumes muss mit der Spracheinstellung des Quellvolumes übereinstimmen.
++
+Der folgende Befehl erstellt ein 2 GB SnapLock Compliance Volume mit dem Namen `dstvolB` In `SVM2` auf das Aggregat `node01_aggr` :
+
++
+`cluster2::> volume create -vserver SVM2 -volume dstvolB -aggregate node01_aggr -snaplock-type compliance -type DP -size 2GB`
+
+. Um den Air-Gap zu erstellen, legen Sie im Zielcluster die Standardaufbewahrungsdauer fest, wie inlink:https://docs.netapp.com/us-en/ontap/snaplock/set-default-retention-period-task.html["Festlegen der Standardaufbewahrungsdauer"^] .  Einem SnapLock -Volume, das ein Tresorziel ist, ist eine Standardaufbewahrungsdauer zugewiesen.  Der Wert für diesen Zeitraum ist zunächst auf mindestens 0 Jahre und höchstens 100 Jahre eingestellt (ab ONTAP 9.10.1).  Bei früheren ONTAP Versionen liegt der Wert zwischen 0 und 70.) für SnapLock Compliance Volumes.  Jede NetApp Snapshot-Kopie wird zunächst mit dieser Standardaufbewahrungsdauer festgeschrieben.  Die Standardaufbewahrungsdauer muss geändert werden.  Die Aufbewahrungsfrist kann bei Bedarf später verlängert, jedoch nie verkürzt werden. Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/ontap/snaplock/set-retention-period-task.html["Übersicht über die eingestellte Aufbewahrungsdauer"^] .
++
+
+NOTE: Dienstanbieter sollten bei der Festlegung der Aufbewahrungsfrist das Vertragsende des Kunden berücksichtigen.  Wenn beispielsweise die Aufbewahrungsfrist für den Cyber-Tresor 30 Tage beträgt und der Vertrag des Kunden vor Ablauf der Aufbewahrungsfrist endet, können die Daten im Cyber-Tresor erst nach Ablauf der Aufbewahrungsfrist gelöscht werden.
+
+. link:https://docs.netapp.com/us-en/ontap/data-protection/create-replication-relationship-task.html["Erstellen einer neuen Replikationsbeziehung"^]zwischen der Nicht- SnapLock -Quelle und dem neuen SnapLock Ziel, das Sie in Schritt 3 erstellt haben.
++
+In diesem Beispiel wird eine neue SnapMirror -Beziehung mit dem SnapLock Zielvolume „dstvolB“ erstellt. Dabei wird die Richtlinie „XDPDefault“ verwendet, um Snapshot-Kopien mit täglichen und wöchentlichen Bezeichnungen stündlich zu speichern:
+
++
+`cluster2::> snapmirror create -source-path SVM1:srcvolA -destination-path SVM2:dstvolB -vserver SVM2 -policy XDPDefault -schedule hourly`
+
++
+link:https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html["Erstellen einer benutzerdefinierten Replikationsrichtlinie"^]oder einlink:https://docs.netapp.com/us-en/ontap/data-protection/create-replication-job-schedule-task.html["benutzerdefinierter Zeitplan"^] wenn die verfügbaren Voreinstellungen nicht geeignet sind.
+
+. Initialisieren Sie auf der Ziel-SVM die in Schritt 5 erstellte SnapVault -Beziehung:
++
+`snapmirror initialize -destination-path destination_path`
+
+. Der folgende Befehl initialisiert die Beziehung zwischen dem Quellvolume srcvolA auf SVM1 und dem Zielvolume dstvolB auf SVM2:
++
+`cluster2::> snapmirror initialize -destination-path SVM2:dstvolB`
+
+. Nachdem die Beziehung initialisiert und im Leerlauf ist, verwenden Sie den Befehl „Snapshot Show“ am Ziel, um die auf die replizierten Snapshot-Kopien angewendete SnapLock -Ablaufzeit zu überprüfen.
++
+In diesem Beispiel werden die Snapshot-Kopien auf dem Volume „dstvolB“ aufgelistet, die über die Bezeichnung „SnapMirror“ und das Ablaufdatum „SnapLock“ verfügen:
+
++
+`cluster2::> snapshot show -vserver SVM2 -volume dstvolB -fields snapmirror-label, snaplock-expiry-time`
+
+

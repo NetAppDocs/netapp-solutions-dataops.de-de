@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: automation/automation-introduction.html 
+summary: Durch die Automatisierung der NetApp -Lösungen kann der Kunde die Bereitstellung, Konfiguration und Ausführung vieler gängiger Infrastruktur- und Anwendungsaufgaben automatisieren. 
+keywords: netapp, solutions, automation, ansible, terraform 
+---
+= NetApp Lösungsautomatisierung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durch die Automatisierung der NetApp -Lösungen kann der Kunde die Bereitstellung, Konfiguration und Ausführung vieler gängiger Infrastruktur- und Anwendungsaufgaben automatisieren.
+
+
+
+== Einführung
+
+NetApp bietet Lösungen zur Bewältigung der heutigen geschäftlichen Herausforderungen und verfolgt dabei folgende Ziele:
+
+* Bereitstellung validierter Bereitstellungs- und Konfigurationsschritte,
+* Bereitstellung von Lösungen, die leicht konsumierbar sind,
+* Bereitstellung einer Lösung mit vorhersehbarem Ergebnis, die leicht wiederholt werden kann und im gesamten Unternehmen eines Kunden skalierbar ist.
+
+
+Um diese Ziele zu erreichen, ist es von größter Bedeutung, dass die Bereitstellung und Konfiguration der über unsere Lösungen bereitgestellten Infrastruktur und/oder Anwendungen durch Automatisierung vereinfacht wird.  NetApp hat sich zum Ziel gesetzt, die Nutzung von Lösungen durch Automatisierung zu vereinfachen.
+
+Durch die Verwendung von Open-Source-Automatisierungstools wie Red Hat Ansible, HashiCorp Terraform oder Microsoft Powershell können NetApp Lösungen die Anwendungsbereitstellung, die Cloud-Bereitstellung, das Konfigurationsmanagement und viele andere gängige IT-Aufgaben automatisieren.  Die Lösungen von NetApp nutzen öffentlich verfügbare Automatisierungsartefakte und bieten von NetApp erstellte Automatisierung, um die allgemeine Bereitstellung einer Lösung zu vereinfachen.
+
+Wenn Automatisierungsfunktionen verfügbar sind, führt das Lösungsmaterial den Benutzer durch den Prozess zur Automatisierung der Lösung oder der Lösungsschritte mithilfe der spezifischen Automatisierungstools.
