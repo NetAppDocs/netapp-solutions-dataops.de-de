@@ -88,7 +88,7 @@ rpcinfo -p < NAS IP or on-prem nfs data LIF ip >
 .. Laden Sie die Lizenz herunter und halten Sie sie bereit.
 
 
-. Erstellen Sie vor Ort eine NFS-Freigabe für jedes Azure NetApp Volume oder für den Cloud Volume Service (Premium-Servicelevel) in der Cloud für den XCP-Katalog.
+. Erstellen Sie für jedes Azure NetApp Volume oder für die Google Cloud NetApp Volumes (Premium-Servicelevel) in der Cloud eine lokale NFS-Freigabe für den XCP-Katalog.
 . Erstellen Sie ein NAS-Volume und konfigurieren Sie die Freigabe für das Datenziel.
 . Für mehrere XCP-Instanzen benötigen Sie einen oder mehrere Server oder Cloud-Instanzen, um die Daten aus mehreren Quellordnern oder -dateien zum Ziel zu übertragen.
 . Die Maxdir-Größe (Standard ist 308 MB) definiert die maximale Dateianzahl (ungefähr eine Million) in einem einzelnen Ordner.  Erhöhen Sie den Maxdir-Größenwert, um die Dateianzahl zu erhöhen.  Eine Erhöhung des Wertes wirkt sich auf zusätzliche CPU-Zyklen aus.
