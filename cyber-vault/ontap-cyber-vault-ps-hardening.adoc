@@ -36,7 +36,7 @@ ONTAP bietet eine Reihe von Steuerelementen, mit denen der ONTAP Speicher gehär
 
 === ONTAP CLI oder über Automatisierungsskript
 
-. Schützen Sie die Verwaltung mit Multi-Admin Verification (MFA)
+. Schützen Sie die Administration mit Multi-Admin-Verifizierung (MAV) zusätzlich zur Multi-Faktor-Authentifizierung (MFA) und erhöhen Sie so die Sicherheit des administrativen Zugriffs auf die Datenspeicher-VM.
 . Aktivieren Sie die Verschlüsselung für Standarddaten während der Übertragung zwischen Clustern.
 . Sichern Sie SSH mit einer starken Verschlüsselungsmethode und erzwingen Sie sichere Passwörter.
 . Aktivieren Sie globales FIPS.
