@@ -18,6 +18,7 @@ Dieser Abschnitt behandelt die Bereitstellungsschritte für NetApp XCP zur Daten
 
 
 
+[[test-bed-details]]
 == Prüfstandsdetails
 
 Die folgende Tabelle enthält die Details des Testbetts, das für diese Bereitstellung und Leistungsvalidierung verwendet wurde.
@@ -56,6 +57,7 @@ Die folgende Tabelle enthält die Details des Testbetts, das für diese Bereitst
 |===
 
 
+[[deployment-steps-nas]]
 == Bereitstellungsschritte – NAS
 
 Um NetApp XCP für die Datenübertragung bereitzustellen, installieren und aktivieren Sie zunächst die XCP-Software am Zielspeicherort.  Sie können die Details im https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064["NetApp XCP-Benutzerhandbuch"^] .  Führen Sie dazu die folgenden Schritte aus:
@@ -234,12 +236,14 @@ Ausführliche Schritte finden Sie unter https://helpcenter.netwrix.com/NA/Config
 
 
 
+[[deployment-steps-hdfsmaprfs-data-migration]]
 == Bereitstellungsschritte – HDFS/MapRFS-Datenmigration
 
 In diesem Abschnitt besprechen wir die neue XCP-Funktion namens „Hadoop Filesystem Data Transfer to NAS“, die Daten von HDFS/MapRFS zu NFS und umgekehrt migriert.
 
 
 
+[[prerequisites]]
 === Voraussetzungen
 
 Für die MapRFS/HDFS-Funktion müssen Sie das folgende Verfahren in einer Umgebung ohne Root-Benutzer durchführen.  Normalerweise ist der Nicht-Root-Benutzer hdfs, mapr oder ein Benutzer, der die Berechtigung hat, Änderungen im HDFS- und MapRFS-Dateisystem vorzunehmen.
@@ -272,6 +276,7 @@ In dieser Version unterstützen wir XCP-Scan-, Kopier- und Überprüfungsvorgän
 
 
 
+[[deployment-steps-non-root-user-migrates-hdfsmaprfs-data-to-netapp-nfs]]
 === Bereitstellungsschritte – Nicht-Root-Benutzer migriert HDFS/MaprFS-Daten zu NetApp NFS
 
 . Befolgen Sie die gleichen Schritte 1–9 im Abschnitt „Schritte zur Bereitstellung“.

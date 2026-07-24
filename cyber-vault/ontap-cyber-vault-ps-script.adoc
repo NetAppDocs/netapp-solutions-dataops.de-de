@@ -18,6 +18,7 @@ NetApp hat einelink:https://github.com/NetApp/ransomeware-cybervault-automation[
 
 
 
+[[what-this-script-does]]
 == Was dieses Skript macht
 
 * Cluster-Peering
@@ -31,6 +32,7 @@ NetApp hat einelink:https://github.com/NetApp/ransomeware-cybervault-automation[
 
 
 
+[[how-to-use-this-script]]
 == So verwenden Sie dieses Skript
 
 link:https://github.com/NetApp/ransomeware-cybervault-automation["Laden Sie das Skript herunter"^]und um das Skript zu verwenden, folgen Sie einfach den folgenden Schritten:
@@ -48,6 +50,7 @@ NOTE: Der Cron-Modus kann verwendet werden, um die Ruhephase und Wiederaufnahme 
 
 
 
+[[modes-of-operation]]
 == Betriebsarten
 
 Das Automatisierungsskript bietet 3 Ausführungsmodi: `configure` , `analyze` Und `cron` .

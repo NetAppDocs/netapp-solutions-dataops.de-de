@@ -18,6 +18,7 @@ Dieser Abschnitt enthält detaillierte Schritte zum Migrieren von Daten von NetA
 
 
 
+[[transitioning-7-mode-nfsv3-storage-to-ontap-for-nfs-data]]
 == Umstellung von 7-Mode NFSv3-Speicher auf ONTAP für NFS-Daten
 
 Dieser Abschnitt enthält in der folgenden Tabelle die schrittweise Vorgehensweise zum Umstellen eines Quell-7-Mode-NFSv3-Exports auf ein ONTAP System.
@@ -410,6 +411,7 @@ Nach `resume` Wenn das Kopieren der Dateien abgeschlossen ist, führen Sie `veri
 
 
 
+[[transitioning-7-mode-volume-snapshot-copies-to-ontap]]
 == Umstellung von 7-Mode-Volume-Snapshot-Kopien auf ONTAP
 
 In diesem Abschnitt wird das Verfahren zum Übertragen einer NetApp -Snapshot-Kopie eines Quell-7-Mode-Volumes auf ONTAP beschrieben.
@@ -797,6 +799,7 @@ xcp: resume '7msnap_res1': Values marked with a * include operations before resu
 
 
 
+[[migrating-aclv4-from-netapp-7-mode-to-a-netapp-storage-system]]
 == Migration von ACLv4 von NetApp 7-Mode auf ein NetApp -Speichersystem
 
 In diesem Abschnitt wird die schrittweise Vorgehensweise zum Übertragen eines NFSv4-Quellexports auf ein ONTAP -System beschrieben.
@@ -806,6 +809,7 @@ NOTE: NetApp geht davon aus, dass das Quell-NFSv4-Volume exportiert und auf dem 
 
 
 
+[[prerequisites-for-migrating-a-source-nfsv4-export-to-ontap]]
 === Voraussetzungen für die Migration eines NFSv4-Quellexports nach ONTAP
 
 Bevor Sie einen NFSv4-Quellexport nach ONTAP migrieren, müssen die folgenden Voraussetzungen erfüllt sein:
@@ -833,6 +837,7 @@ drwxr-xr-x --- root root 4KiB 4KiB 17m43s vol1/DIR1/DIR11/DIR2/DIR22
 ....
 
 
+[[subdirectories-options]]
 === Unterverzeichnisoptionen
 
 Die beiden Optionen zum Arbeiten mit Unterverzeichnissen sind folgende:
@@ -1251,6 +1256,7 @@ Nach `resume` Wenn das Kopieren der Dateien abgeschlossen ist, führen Sie `veri
 
 
 
+[[transitioning-7-mode-smb-storage-to-ontap-for-cifs-data]]
 == Umstellung von 7-Mode SMB-Speicher auf ONTAP für CIFS-Daten
 
 In diesem Abschnitt wird die schrittweise Vorgehensweise zum Umstellen einer Quell-7-Mode-SMB-Freigabe auf ein ONTAP System beschrieben.

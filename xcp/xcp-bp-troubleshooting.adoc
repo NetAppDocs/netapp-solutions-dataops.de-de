@@ -18,6 +18,7 @@ Dieser Abschnitt enthält Anleitungen zur Fehlerbehebung bei der Datenmigration 
 
 
 
+[[error-1-xcp-failed-with-nfs3-error-70-stale-filehandle-error-in-the-xcp-log]]
 == Fehler 1: XCP ist mit NFS3-Fehler 70 fehlgeschlagen: veralteter Dateihandle-Fehler im xcp.log
 
 *Grund und Anleitung.*
@@ -26,6 +27,7 @@ Hängen Sie den Quellordner ein und überprüfen Sie, ob der Ordner vorhanden is
 
 
 
+[[error-2-netapp-nfs-destination-volume-has-space-but-xcp-failed-with-nfs3-error-28-no-space-left-on-device]]
 == Fehler 2: NetApp NFS-Zielvolume verfügt über Speicherplatz, aber XCP ist mit NFS3-Fehler 28 fehlgeschlagen: Kein Speicherplatz mehr auf dem Gerät
 
 *Grund und Anleitung.*

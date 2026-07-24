@@ -22,6 +22,7 @@ image:xcp-bp-003.png["Abbildung, die einen Eingabe-/Ausgabedialog zeigt oder sch
 
 
 
+[[on-premises]]
 == Vor Ort
 
 Der Migrationsworkflow von einem beliebigen NAS zu einem NetApp NAS umfasst die folgenden Schritte:
@@ -36,6 +37,7 @@ Der Migrationsworkflow von einem beliebigen NAS zu einem NetApp NAS umfasst die 
 
 
 
+[[cloud]]
 == Wolke
 
 Für die Cloud können Sie einem ähnlichen Migrationsworkflow vor Ort folgen, wenn die Konnektivität zwischen dem lokalen Standort und der Cloud über Direct Connect (AWS), ExpressRoute (Azure) oder Cloud Interconnect (GCP) erfolgt.

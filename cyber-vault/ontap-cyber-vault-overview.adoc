@@ -23,6 +23,7 @@ NOTE: Ab Juli 2024 werden Inhalte aus technischen Berichten, die zuvor als PDFs 
 
 
 
+[[what-is-a-cyber-vault]]
 == Was ist ein Cyber-Tresor?
 
 Ein Cyber-Tresor ist eine spezielle Datenschutztechnik, bei der kritische Daten in einer isolierten Umgebung, getrennt von der primären IT-Infrastruktur, gespeichert werden.
@@ -33,6 +34,7 @@ Bei Air-Gapping-Backups mit herkömmlichen Methoden müssen Platz geschaffen und
 
 
 
+[[netapps-approach-to-cyber-vault]]
 == NetApps Ansatz für Cyber Vault
 
 Zu den wichtigsten Funktionen der NetApp Referenzarchitektur für einen Cyber Vault gehören:

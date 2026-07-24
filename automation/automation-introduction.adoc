@@ -18,6 +18,7 @@ Durch die Automatisierung der NetApp -Lösungen kann der Kunde die Bereitstellun
 
 
 
+[[introduction]]
 == Einführung
 
 NetApp bietet Lösungen zur Bewältigung der heutigen geschäftlichen Herausforderungen und verfolgt dabei folgende Ziele:

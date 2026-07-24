@@ -18,6 +18,7 @@ Dies sind die zusätzlichen Empfehlungen zum Härten eines ONTAP Cyber Vault.  W
 
 
 
+[[cyber-vault-hardening-recommendations]]
 == Empfehlungen zur Cyber-Tresorhärtung
 
 * Isolieren Sie die Verwaltungsebenen des Cyber-Tresors

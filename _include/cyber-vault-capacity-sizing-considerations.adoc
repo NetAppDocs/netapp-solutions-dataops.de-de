@@ -4,6 +4,7 @@
 
 
 
+[[capacity-sizing-considerations]]
 == Überlegungen zur Kapazitätsdimensionierung
 
 Die Menge an Speicherplatz, die für ein ONTAP Cyber Vault-Zielvolume erforderlich ist, hängt von einer Reihe von Faktoren ab. Der wichtigste davon ist die Änderungsrate der Daten im Quellvolume.  Sowohl der Sicherungszeitplan als auch der Snapshot-Zeitplan auf dem Zielvolume wirken sich auf die Datenträgernutzung auf dem Zielvolume aus, und die Änderungsrate auf dem Quellvolume ist wahrscheinlich nicht konstant.  Es empfiehlt sich, einen Puffer an zusätzlicher Speicherkapazität bereitzustellen, der über den erforderlichen Wert hinausgeht, um zukünftigen Änderungen im Endbenutzer- oder Anwendungsverhalten Rechnung zu tragen.

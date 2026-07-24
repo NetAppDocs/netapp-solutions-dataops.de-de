@@ -20,10 +20,12 @@ ONTAP bietet eine Reihe von Steuerelementen, mit denen der ONTAP Speicher gehär
 
 
 
+[[hardening-best-practices]]
 == Best Practices zur Härtung
 
 
 
+[[manual-steps]]
 === Manuelle Schritte
 
 . Erstellen Sie einen bestimmten Benutzer mit vordefinierter und benutzerdefinierter Administratorrolle.
@@ -34,6 +36,7 @@ ONTAP bietet eine Reihe von Steuerelementen, mit denen der ONTAP Speicher gehär
 
 
 
+[[ontap-cli-or-via-automation-script]]
 === ONTAP CLI oder über Automatisierungsskript
 
 . Schützen Sie die Administration mit Multi-Admin-Verifizierung (MAV) zusätzlich zur Multi-Faktor-Authentifizierung (MFA) und erhöhen Sie so die Sicherheit des administrativen Zugriffs auf die Datenspeicher-VM.

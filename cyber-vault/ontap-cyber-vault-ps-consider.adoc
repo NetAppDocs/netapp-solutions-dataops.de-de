@@ -18,6 +18,7 @@ Beim Entwerfen und Bereitstellen eines ONTAP -basierten Cyber-Tresors sind zusä
 
 
 
+[[capacity-sizing-considerations]]
 == Überlegungen zur Kapazitätsdimensionierung
 
 Die Menge an Speicherplatz, die für ein ONTAP Cyber Vault-Zielvolume erforderlich ist, hängt von einer Reihe von Faktoren ab. Der wichtigste davon ist die Änderungsrate der Daten im Quellvolume.  Sowohl der Sicherungszeitplan als auch der Snapshot-Zeitplan auf dem Zielvolume wirken sich auf die Datenträgernutzung auf dem Zielvolume aus, und die Änderungsrate auf dem Quellvolume ist wahrscheinlich nicht konstant.  Es empfiehlt sich, einen Puffer an zusätzlicher Speicherkapazität bereitzustellen, der über den erforderlichen Wert hinausgeht, um zukünftigen Änderungen im Endbenutzer- oder Anwendungsverhalten Rechnung zu tragen.
@@ -72,6 +73,7 @@ NOTE: Berücksichtigen Sie das Datenwachstum im Laufe der Zeit, um sicherzustell
 
 
 
+[[performance-impact-on-primary-source]]
 == Auswirkungen auf die Leistung der Primärquelle
 
 Da es sich bei der Datenübertragung um einen Pull-Vorgang handelt, können die Auswirkungen auf die Leistung des Primärspeichers je nach Arbeitslast, Datenvolumen und Häufigkeit der Sicherungen variieren.  Die Gesamtauswirkungen auf die Leistung des primären Systems sind jedoch im Allgemeinen moderat und beherrschbar, da die Datenübertragung darauf ausgelegt ist, Datenschutz- und Sicherungsaufgaben auf das Cyber-Vault-Speichersystem auszulagern.  Während der anfänglichen Einrichtung der Beziehung und der ersten vollständigen Sicherung wird eine erhebliche Datenmenge vom primären System auf das Cyber-Vault-System (das SnapLock Compliance Volume) übertragen.  Dies kann zu erhöhtem Netzwerkverkehr und einer erhöhten E/A-Last auf dem primären System führen.  Sobald die erste vollständige Sicherung abgeschlossen ist, muss ONTAP nur noch Blöcke verfolgen und übertragen, die sich seit der letzten Sicherung geändert haben.  Dies führt zu einer wesentlich geringeren E/A-Last im Vergleich zur ursprünglichen Replikation.  Inkrementelle Updates sind effizient und haben nur minimale Auswirkungen auf die Leistung des Primärspeichers.  Der Tresorprozess läuft im Hintergrund, wodurch die Wahrscheinlichkeit von Störungen der Produktionsarbeitslasten des primären Systems verringert wird.

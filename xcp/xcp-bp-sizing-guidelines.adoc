@@ -18,6 +18,7 @@ In diesem Abschnitt wird die ungefähre Zeit angegeben, die zum Ausführen der X
 
 
 
+[[time-estimate-based-on-testing]]
 == Zeitschätzung basierend auf Tests
 
 Für die Tests der XCP-Kopier- und Synchronisierungsvorgänge wurde dieselbe Testumgebung verwendet, die auch für die Bereitstellung verwendet wurde.  Es wurden eine Million Dateien aus drei Sätzen mit 8K-, 16K- und 1MB-Dateien erstellt und die Änderungen in Echtzeit durchgeführt.  Die XCP-Synchronisierungsfunktion führte die differenziellen inkrementellen Aktualisierungen von der Quelle zum Ziel auf Dateiebene durch.  Der inkrementelle Aktualisierungsvorgang umfasst einen oder mehrere dieser vier Vorgänge: Umbenennen vorhandener Dateien und Ordner, Anhängen von Daten an vorhandene Dateien, Löschen von Dateien und Ordnern und Einfügen zusätzlicher Hard-, Soft- und Multilinks.  Zu Testzwecken haben wir uns auf die Vorgänge „Umbenennen“, „Anhängen“, „Löschen“ und „Verknüpfen“ konzentriert.  Mit anderen Worten: Die Änderungsvorgänge wie Umbenennen, Anhängen und Löschen wurden mit einer Änderungsrate von 10 % bis 90 % an einer Million Dateien durchgeführt.
@@ -42,6 +43,7 @@ Für die Anfüge- und Löschvorgänge benötigen große Dateien mehr Zeit als kl
 
 
 
+[[comparing-xcp-1-6-1-to-xcp-1-5]]
 == Vergleich von XCP 1.6.1 und XCP 1.5
 
 Im Vergleich zu früheren Versionen bieten XCP 1.6.3 und 1.7 eine verbesserte Leistung.  Der folgende Abschnitt zeigt einen Vergleich der Synchronisierungsleistung zwischen XCP 1.6.3 und 1.7 für 8K-, 16K- und 1MB-Größen von einer Million Dateien.

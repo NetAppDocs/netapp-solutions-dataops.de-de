@@ -18,6 +18,7 @@ Diese FAQ richten sich an Kunden und Partner von NetApp .  Es beantwortet häufi
 
 
 
+[[what-is-a-netapp-cyber-vault]]
 == Was ist ein NetApp Cyber Vault?
 
 Cyber Vault ist eine spezielle Datenschutztechnik, bei der Daten in einer isolierten Umgebung gespeichert werden, getrennt von der primären IT-Infrastruktur.
@@ -30,6 +31,7 @@ Weitere Schritte über Air-Gapped-Netzwerke hinaus umfassen das Deaktivieren all
 
 
 
+[[netapps-approach-to-cyber-vault]]
 == NetApps Ansatz für Cyber Vault
 
 NetApp Cyber Vault, unterstützt durch SnapLock, bietet Unternehmen eine umfassende und flexible Lösung zum Schutz ihrer wichtigsten Datenbestände.  Durch die Nutzung der Härtungstechnologien in ONTAP ermöglicht NetApp Ihnen die Erstellung eines sicheren, luftgekapselten und isolierten Cyber-Tresors, der immun gegen sich entwickelnde Cyber-Bedrohungen ist.  Mit NetApp können Sie die Vertraulichkeit, Integrität und Verfügbarkeit Ihrer Daten sicherstellen und gleichzeitig die Agilität und Effizienz Ihrer Speicherinfrastruktur aufrechterhalten.
@@ -44,6 +46,7 @@ Zu den wichtigsten Funktionen der NetApp Referenzarchitektur für einen Cyber Va
 
 
 
+[[cyber-vault-frequently-asked-questions]]
 == Häufig gestellte Fragen zum Cyber-Tresor
 
 .Ist Cyber Vault ein Produkt von NetApp?

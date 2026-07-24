@@ -18,6 +18,7 @@ Mit ONTAP -Hardware und -Software kann eine Cyber-Vault-Konfiguration erstellt w
 
 
 
+[[ontap-hardware-recommendations]]
 == ONTAP Hardware-Empfehlungen
 
 Alle einheitlichen physischen Arrays von ONTAP können für eine Cyber-Vault-Implementierung verwendet werden.
@@ -29,6 +30,7 @@ Alle einheitlichen physischen Arrays von ONTAP können für eine Cyber-Vault-Imp
 
 
 
+[[ontap-software-recommendations]]
 == ONTAP Softwareempfehlungen
 
 Ab ONTAP 9.14.1 können Sie Aufbewahrungszeiträume für bestimmte SnapMirror Labels in der SnapMirror Richtlinie der SnapMirror Beziehung angeben, sodass die replizierten Snapshot-Kopien vom Quell- zum Zielvolume für den in der Regel angegebenen Aufbewahrungszeitraum aufbewahrt werden.  Wenn keine Aufbewahrungsdauer angegeben ist, wird die Standardaufbewahrungsdauer des Zielvolumes verwendet.
@@ -37,6 +39,7 @@ Ab ONTAP 9.13.1 können Sie eine gesperrte Snapshot-Kopie auf dem Ziel SnapLock 
 
 
 
+[[metrocluster-configuration]]
 == MetroCluster -Konfiguration
 
 Bei MetroCluster -Konfigurationen sollten Sie Folgendes beachten:

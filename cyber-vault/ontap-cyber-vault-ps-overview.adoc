@@ -31,6 +31,7 @@ NOTE: Dieselbe Lösung ist anwendbar, um den vorgesehenen Cyber-Tresor in AWS mi
 
 
 
+[[high-level-steps-to-create-a-ontap-cyber-vault]]
 == Allgemeine Schritte zum Erstellen eines ONTAP Cyber Vault
 
 * Peering-Beziehung erstellen
@@ -72,6 +73,7 @@ image:ontap-cyber-vault-air-gap.png["Allgemeine Schritte zum Erstellen eines ONT
 
 
 
+[[solution-components]]
 == Lösungskomponenten
 
 NetApp ONTAP mit 9.15.1 auf Quell- und Zielclustern.

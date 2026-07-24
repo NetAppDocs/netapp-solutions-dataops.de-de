@@ -18,6 +18,7 @@ Bei Air-Gapping-Backups mit herkömmlichen Methoden müssen Platz geschaffen und
 
 
 
+[[pre-requisites]]
 == Voraussetzungen
 
 Bevor Sie mit den Schritten im nächsten Abschnitt dieses Dokuments beginnen, stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
@@ -39,6 +40,7 @@ NOTE: Der Cyber-Vault-Cluster kann sich im selben oder einem anderen Rechenzentr
 
 
 
+[[steps-to-create-a-ontap-cyber-vault]]
 == Schritte zum Erstellen eines ONTAP Cyber Vault
 
 . Verwenden Sie die ONTAP CLI oder den System Manager, um die Compliance-Uhr zu initialisieren.

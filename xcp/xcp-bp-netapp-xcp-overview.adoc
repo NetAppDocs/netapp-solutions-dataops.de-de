@@ -18,6 +18,7 @@ NetApp XCP überträgt Daten mithilfe von Multithreads und anpassbaren Funktione
 
 
 
+[[data-move-or-migration]]
 == Datenverschiebung oder -migration
 
 NetApp XCP überträgt Daten von jedem NAS zu NetApp NAS.  Dieser Prozess besteht aus vier Hauptvorgängen: Scannen, Kopieren, Synchronisieren und Überprüfen.  Es gibt einige zusätzliche Funktionen, die die Datenüberwachung und -übertragung erleichtern:
@@ -35,6 +36,7 @@ image:xcp-bp-001.png["Abbildung, die einen Eingabe-/Ausgabedialog zeigt oder sch
 
 
 
+[[file-system-analytics]]
 == Dateisystemanalyse
 
 NetApp XCP ermöglicht Ihnen nativ die Identifizierung, Prüfung und Analyse unstrukturierter Daten, um bessere Erkenntnisse zu gewinnen – eine wichtige Voraussetzung für Unternehmenskunden, die diese Erkenntnisse für eine bessere Planung, die Operationalisierung hochwertiger digitaler Assets und für die Datenverwaltung durch Berichterstellung und Bewertung nutzen möchten.
@@ -52,12 +54,14 @@ image:xcp-bp-002.png["Abbildung, die einen Eingabe-/Ausgabedialog zeigt oder sch
 
 
 
+[[delete]]
 == Löschen
 
 Für Speicherteams und EDA-Workloads (Electronic Design Automation) kann es eine große Herausforderung sein, große Verzeichnisse zu bereinigen, unabhängig davon, ob es sich um veraltete Daten oder Testdaten handelt, die bereinigt werden müssen, um Speicherplatz freizugeben.  XCP bietet eine Schnelllöschfunktion, mit der ein kompletter Verzeichnisbaum gelöscht werden kann.  Die NetApp XCP-Löschfunktion entfernt Dateien und Ordner aus einem bestimmten NAS-Pfad.  Sie können die Übereinstimmungsfilter nutzen, um einen bestimmten Satz von Dateien und Ordnern zu löschen.  Bei einer großen Anzahl von Dateien und Ordnern können Sie die Option „Erzwingen“ verwenden, bei der zum Löschen keine Bestätigung erforderlich ist.
 
 
 
+[[live-source-migration-support]]
 == Unterstützung für Live Source Migration
 
 Die in XCP 1.7 enthaltene Unterstützung für Live Source Migration ermöglicht die Migration von einer Datenquelle, die aktiv verwendet wird (Lese- und Schreibaktivität).  XCP lässt Dateien aus, die während des Migrationsauftrags verwendet werden, z. B. beim Ausführen von Kopier- und Synchronisierungsvorgängen. Informationen zu übersprungenen Dateien werden im XCP-Protokoll erfasst.
@@ -69,6 +73,7 @@ NOTE: Für Live Source Migrations sind keine besonderen Einstellungen erforderli
 
 
 
+[[prerequisites-for-xcp]]
 == Voraussetzungen für XCP
 
 Bevor Sie NetApp XCP bereitstellen, müssen die folgenden Voraussetzungen erfüllt sein:

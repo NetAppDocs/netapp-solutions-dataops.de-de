@@ -15,6 +15,7 @@ Informieren Sie sich über Neuigkeiten im Bereich Datenverwaltungslösungen.
 
 
 
+[[18-august-2025]]
 == 18. August 2025
 
 Die NetApp Solutions-Site ist jetzt dielink:https://docs.netapp.com/us-en/netapp-solutions-family/index.html["NetApp Lösungsfamilie"^] , das die folgenden Websites umfasst:
