@@ -33,7 +33,7 @@ Akash Gupta, NetApp Girish Chanchlani, Commvault
 
 TR-4320 beschreibt die Referenzarchitektur und Best Practices bei der Verwendung von NetApp E-Series-Speicher in einer Commvault Data Platform V11-Umgebung.  Commvault und NetApp haben diese Referenzarchitektur gemeinsam entwickelt, um eine Anleitung für die Bereitstellung der Commvault Data Platform V11 mit NetApp E-Series-Speicher bereitzustellen, die die Anwendungszeit dieser Lösung verkürzt.
 
-link:https://www.netapp.com/pdf.html?item=/media/17042-tr4320pdf.pdf["TR-4320: NetApp E-Series und Commvault Data Platform V11 – Referenzarchitektur und Best Practices für Speicher"^]
+link:https://www.netapp.com/pdf.html?item=/media/17042-tr4320.pdf["TR-4320: NetApp E-Series und Commvault Data Platform V11 – Referenzarchitektur und Best Practices für Speicher"^]
 
 
 
@@ -44,7 +44,7 @@ Akash Gupta, NetApp Shawn Lieu (Amerika), Stefan Renner (EMEA) und Michael Cade 
 
 TR-4471 beschreibt die Referenzarchitektur und Best Practices bei der Verwendung von NetApp E-Series-Speicher in einer Veeam Backup & Replication 9.5-Umgebung.
 
-link:https://www.netapp.com/pdf.html?item=/media/17159-tr4471pdf.pdf["TR-4471: Referenzarchitektur der E-Serie und EF-Serie sowie bewährte Speichermethoden mit Veeam Backup  Replication 9.5"^]
+link:https://www.netapp.com/pdf.html?item=/media/17159-tr4471.pdf["TR-4471: Referenzarchitektur der E-Serie und EF-Serie sowie bewährte Speichermethoden mit Veeam Backup  Replication 9.5"^]
 
 
 
@@ -55,4 +55,4 @@ Akash Gupta und Principled Technologies, NetApp
 
 TR-4704 beschreibt die Bereitstellung von Veritas NetBackup auf NetApp E-Series-Speicher.
 
-link:https://www.netapp.com/pdf.html?item=/media/16433-tr-4704pdf.pdf["TR-4704: Bereitstellen von Veritas NetBackup mit NetApp E-Series-Speicher"^]
+link:https://www.netapp.com/pdf.html?item=/media/16433-tr-4704.pdf["TR-4704: Bereitstellen von Veritas NetBackup mit NetApp E-Series-Speicher"^]

@@ -232,7 +232,7 @@ Die XCP-Dokumentation bietet mehrere Optionen (mit Beispielen) für die `scan` ,
 
 NOTE: Windows-Kunden sollten die Daten mithilfe von Zugriffskontrolllisten (ACLs) kopieren.  NetApp empfiehlt die Verwendung des Befehls `xcp copy -acl -fallbackuser\<username> -fallbackgroup\<username or groupname> <source> <destination>` .  Um eine maximale Leistung zu erzielen, muss das Ziel ein NTFS-Volume sein, wenn man das Quellvolume berücksichtigt, das SMB-Daten mit ACL enthält, und die Daten, auf die sowohl über NFS als auch über SMB zugegriffen werden kann.  Kopieren Sie mit XCP (NFS-Version) die Daten vom Linux-Server und führen Sie die XCP-Synchronisierung (SMB-Version) mit dem `-acl` Und `-nodata` Optionen vom Windows-Server, um die ACLs von den Quelldaten in die Ziel-SMB-Daten zu kopieren.
 
-Ausführliche Schritte finden Sie unter https://helpcenter.netwrix.com/NA/Configure_IT_Infrastructure/Accounts/DCA_Manage_Auditing_Security_Log.html["Konfigurieren der Richtlinie „Überwachung und Sicherheitsprotokoll verwalten“"^] .
+Detaillierte Schritte sind unter https://docs.netwrix.com/docs/1secure/admin/datacollection/activedirectoryauditing/manageauditingsecuritylog["Konfigurieren der Richtlinie „Überwachung und Sicherheitsprotokoll verwalten“"^] beschrieben.
 
 
 
